@@ -18,8 +18,40 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.8;
             color: #333;
-            background-color: #ffffff;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-attachment: fixed;
             font-size: 18px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-wrapper {
+            max-width: 920px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
         }
 
         .container {
@@ -32,6 +64,25 @@
         header {
             padding: 50px 0 35px;
             border-bottom: 1px solid #e5e5e5;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .header-content {
@@ -47,7 +98,16 @@
             border-radius: 50%;
             object-fit: cover;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 36px rgba(102, 126, 234, 0.4);
         }
 
         .header-text h1 {
@@ -56,6 +116,20 @@
             margin-bottom: 8px;
             color: #1a1a1a;
             letter-spacing: -0.02em;
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .header-text .subtitle {
@@ -69,6 +143,10 @@
             font-style: italic;
             letter-spacing: 0.5px;
             display: inline-block;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
         }
 
         .social-links {
@@ -76,18 +154,43 @@
             gap: 28px;
             margin-top: 0;
             flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+            position: relative;
+            z-index: 1;
         }
 
         .social-links a {
             color: #333;
             text-decoration: none;
-            transition: color 0.2s;
+            transition: all 0.3s ease;
             font-size: 1.05rem;
             font-weight: 500;
+            position: relative;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
         }
 
         .social-links a:hover {
-            color: #0066cc;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .social-links a:hover::before {
+            opacity: 1;
         }
 
         .social-links a i {
@@ -99,23 +202,47 @@
             color: #333;
             margin: 8px 0 18px 0;
             font-weight: 500;
+            animation: fadeInUp 0.8s ease 0.3s backwards;
+            position: relative;
+            z-index: 1;
         }
 
         .email-header i {
             color: #667eea;
             margin-right: 8px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .email-header a {
             color: #667eea;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .email-header a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
         }
 
         .email-header a:hover {
             color: #764ba2;
-            text-decoration: underline;
+        }
+
+        .email-header a:hover::after {
+            width: 100%;
         }
 
         /* Navigation */
@@ -140,13 +267,33 @@
             color: #2c3e50;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
             font-size: 1.15rem;
             letter-spacing: 0.3px;
+            position: relative;
+            padding: 5px 10px;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+            transition: width 0.3s ease;
         }
 
         nav a:hover {
             color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        nav a:hover::before {
+            width: 80%;
         }
 
         /* Main Content */
@@ -168,6 +315,20 @@
             margin-bottom: 25px;
             color: #1a1a1a;
             letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
         }
 
         /* About Section */
@@ -180,15 +341,17 @@
         }
 
         .about-text a {
-            color: #0066cc;
+            color: #667eea;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.2s;
+            transition: all 0.3s;
+            position: relative;
+            border-bottom: 2px solid transparent;
         }
 
         .about-text a:hover {
-            color: #0052a3;
-            text-decoration: underline;
+            color: #764ba2;
+            border-bottom-color: #764ba2;
         }
 
         .about-text strong {
@@ -205,10 +368,17 @@
         .resume-links {
             margin-top: 25px;
             padding: 20px 24px;
-            background-color: #f8f9fa;
-            border-left: 3px solid #0066cc;
-            border-radius: 4px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .resume-links:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
         }
 
         .resume-links strong {
@@ -889,6 +1059,7 @@
     </style>
 </head>
 <body>
+    <div class="page-wrapper">
     <!-- Header -->
     <header>
         <div class="container">
@@ -1226,6 +1397,7 @@
             <p>Email: <a href="mailto:yf_zhang@smail.nju.edu.cn" style="color: #667eea; text-decoration: none;">yf_zhang@smail.nju.edu.cn</a></p>
         </div>
     </footer>
+    </div>
 
     <!-- WeChat Modal -->
     <div id="wechat-modal" class="wechat-modal" onclick="closeWechat(event)">
