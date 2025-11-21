@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yifei Zhang (张逸飞)</title>
+    <link rel="icon" type="image/png" href="img/nju.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #ffffff;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Header */
+        header {
+            padding: 50px 0 35px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            justify-content: center;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+
+        .header-text .subtitle {
+            font-size: 1.35rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 28px;
+            margin-top: 0;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            color: #0066cc;
+        }
+
+        .social-links a i {
+            margin-right: 5px;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 25px 0;
+        }
+
+        nav .container {
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 25px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            font-size: 1.15rem;
+            letter-spacing: 0.3px;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* Main Content */
+        main {
+            padding: 45px 0;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        section#about {
+            margin-bottom: 45px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+
+        /* About Section */
+        .about-text p {
+            margin-bottom: 18px;
+            color: #2c3e50;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            text-align: justify;
+        }
+
+        .about-text a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .about-text a:hover {
+            color: #0052a3;
+            text-decoration: underline;
+        }
+
+        .about-text strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .about-text em {
+            color: #0066cc;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .resume-links {
+            margin-top: 25px;
+            padding: 20px 24px;
+            background-color: #f8f9fa;
+            border-left: 3px solid #0066cc;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .resume-links strong {
+            display: block;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .resume-links a {
+            color: #667eea;
+            font-weight: 600;
+            margin: 0 12px;
+            font-size: 1.15rem;
+            transition: all 0.2s ease;
+        }
+
+        .resume-links a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        /* News Section */
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .news-item::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .news-date {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-right: 10px;
+        }
+
+        .news-item {
+            color: #2c3e50;
+        }
+
+        .news-item strong {
+            color: #c41e3a;
+            font-weight: 700;
+        }
+
+        .news-item em {
+            color: #0066cc;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* News Pagination */
+        .news-item {
+            display: none;
+        }
+
+        .news-item.active {
+            display: block;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .pagination-btn {
+            background-color: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background-color: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        .pagination-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .pagination-info {
+            color: #666;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Publications */
+        .publication {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .publication:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .pub-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        .pub-authors {
+            color: #555;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .pub-authors strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .pub-venue {
+            font-weight: 600;
+            color: #0066cc;
+            margin-bottom: 8px;
+            font-size: 0.98rem;
+        }
+
+        .pub-award {
+            color: #c41e3a;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .pub-tldr {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border-left: 3px solid #667eea;
+            border-radius: 4px;
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .pub-tldr strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .pub-abstract {
+            margin-top: 10px;
+            padding: 15px 20px;
+            background-color: #f0f4ff;
+            border-left: 3px solid #667eea;
+            border-radius: 4px;
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.7;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 500px;
+            }
+        }
+
+        .pub-abstract strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .pub-links {
+            margin-top: 10px;
+        }
+
+        .pub-links a {
+            display: inline-block;
+            margin-right: 15px;
+            padding: 5px 12px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .pub-links a:hover {
+            background-color: #0066cc;
+            color: white;
+            border-color: #0066cc;
+        }
+
+        .github-stars {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 6px;
+            padding: 2px 6px;
+            background: #f6f8fa;
+            border: 1px solid #d0d7de;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #57606a;
+            font-weight: 500;
+        }
+
+        .github-stars i {
+            color: #f1c40f;
+            margin-right: 3px;
+            font-size: 0.75rem;
+        }
+
+        .award {
+            display: inline-block;
+            padding: 5px 12px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #1a1a1a;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-left: 10px;
+            box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+            justify-items: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+            border-color: #667eea;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+
+        .project-tag {
+            padding: 4px 12px;
+            background: #f0f4ff;
+            color: #667eea;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+            justify-content: center;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 14px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border: 1px solid #667eea;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .project-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .star-history {
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .star-history img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 35px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .experience-logo {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .exp-title {
+            font-weight: 700;
+            color: #1a1a1a;
+            font-size: 1.08rem;
+        }
+
+        .exp-date {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .exp-role {
+            color: #555;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .exp-advisor {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .exp-advisor a {
+            color: #0066cc;
+            font-weight: 500;
+        }
+
+        /* WeChat Modal */
+        .wechat-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s;
+        }
+
+        .wechat-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wechat-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            animation: slideIn 0.3s;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .wechat-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: 300;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        .wechat-close:hover {
+            color: #333;
+        }
+
+        .wechat-content h3 {
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            font-size: 1.3rem;
+        }
+
+        .wechat-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .wechat-content p {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            header {
+                padding: 35px 0 25px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .header-text h1 {
+                font-size: 2rem;
+            }
+
+            .header-text .subtitle {
+                font-size: 1.15rem;
+            }
+
+            nav {
+                padding: 20px 0;
+            }
+
+            nav .container {
+                padding-bottom: 20px;
+            }
+
+            nav ul {
+                gap: 25px;
+            }
+
+            nav a {
+                font-size: 1.08rem;
+            }
+
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 12px;
+            }
+
+            .exp-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .resume-links {
+                text-align: center;
+            }
+
+            main {
+                padding: 35px 0;
+            }
+
+            section {
+                margin-bottom: 40px;
+            }
+
+            section#about {
+                margin-bottom: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px;
+            }
+
+            header {
+                padding: 30px 0 20px;
+            }
+
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .header-text h1 {
+                font-size: 1.75rem;
+            }
+
+            .header-text .subtitle {
+                font-size: 1.05rem;
+            }
+
+            .social-links a {
+                font-size: 0.95rem;
+            }
+
+            main {
+                padding: 30px 0;
+            }
+
+            section {
+                margin-bottom: 35px;
+            }
+
+            section#about {
+                margin-bottom: 30px;
+            }
+
+            .about-text p {
+                font-size: 0.98rem;
+                margin-bottom: 10px;
+            }
+
+            .publication {
+                padding: 15px;
+            }
+
+            .pub-links a {
+                margin-bottom: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="img/pic_image.png" alt="Yifei Zhang" class="profile-photo">
+                <div class="header-text">
+                    <h1>Yifei Zhang (张逸飞)</h1>
+                    <p class="subtitle">Per aspera ad astra</p>
+                    <div class="social-links">
+                        <a href="https://scholar.google.com/citations?hl=en&user=b4rGdr4AAAAJ" target="_blank">
+                            <i class="fas fa-graduation-cap"></i> Google Scholar
+                        </a>
+                        <a href="https://github.com/Hoder-zyf" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/yifei-zhang-8087521b3/" target="_blank">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="#" id="wechat-link" onclick="showWechat(event)">
+                            <i class="fab fa-weixin"></i> WeChat
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#news">News</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="https://hoder-zyf.github.io/assets/pdf/en-cv-zyf.pdf" target="_blank">CV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- About Section -->
+        <section id="about">
+            <div class="about-text">
+                <p>Hi, I am <strong>Yifei Zhang (张逸飞)</strong>, a master's student in Financial Engineering and Fintech at <a href="https://www.nju.edu.cn/en" target="_blank">Nanjing University</a>'s <a href="https://sme.nju.edu.cn/" target="_blank">School of Management & Engineering</a>, advised by <a href="https://sme.nju.edu.cn/yhh/list.htm" target="_blank">Prof. Honghai Yu</a>. I hold a bachelor's degree in <strong>Computer Science and Technology</strong> from the <a href="https://cs.nju.edu.cn/mainm.htm" target="_blank">Department of Computer Science and Technology</a> at Nanjing University, where I specialized in Computer & Financial Engineering Experimental Class (<strong>a Top Talent Program</strong>).</p>
+
+                <p>Currently, I am a research intern at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank">Microsoft Research Asia (MSRA)</a>, advised by <a href="https://www.microsoft.com/en-us/research/people/xiaoyang/" target="_blank">Xiao Yang</a>, focusing on <strong>Autonomous Agent</strong> research. Previously, I had the privilege of collaborating with <a href="https://sds.cuhk.edu.cn/teacher/571" target="_blank">Prof. Benyou Wang</a> and <a href="http://jszy.whu.edu.cn/xieqianqian/zh_CN/index/1646702/list/" target="_blank">Prof. Qianqian Xie</a> on exploring <strong>Large Language Models in Finance</strong>.</p>
+
+                <p>I have published at top-tier conferences including <em>NeurIPS</em> and <em>NAACL</em>. Notably, one of my papers received the <strong>Best Paper Award</strong> at the <em>ICLR 2025 Workshop on Advances in Financial AI</em>, where I presented it as an oral presentation in Singapore. My research interests span <strong>Narrative Economics, Financial Applications of LLMs, and Multi-Agent Systems.</strong></p>
+
+                <div class="resume-links">
+                    <strong>📄 More about me:</strong>
+                    <a href="https://hoder-zyf.github.io/assets/pdf/en-cv-zyf.pdf" target="_blank">English Resume</a> |
+                    <a href="https://hoder-zyf.github.io/assets/pdf/cn-cv-zyf.pdf" target="_blank">中文简历</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news">
+            <h2>News</h2>
+            <ul class="news-list" id="news-list">
+                <li class="news-item">
+                    <span class="news-date">10/2025:</span>
+                    🏆 Pleased to receive the <strong>National Scholarship</strong> at Nanjing University.
+                </li>
+                <li class="news-item">
+                    <span class="news-date">09/2025:</span>
+                    📄 One paper accepted by <em>NeurIPS 2025</em>. You can find the paper <a href="https://arxiv.org/abs/2502.01506" target="_blank">here</a>.
+                </li>
+                <li class="news-item">
+                    <span class="news-date">08/2025:</span>
+                    🎖️ One paper selected as the <strong>Outstanding Paper Award</strong> for the 7th Conference of the Chinese Society of Optimization, Overall Planning, and Economic Mathematics.
+                </li>
+                <li class="news-item">
+                    <span class="news-date">05/2025:</span>
+                    🚀 Start my internship at MSRA-Beijing!
+                </li>
+                <li class="news-item">
+                    <span class="news-date">04/2025:</span>
+                    🏅 Give a talk at Financial AI @ ICLR 2025 and won the <strong>Best Paper Award</strong> (1 out of 53). You can find the paper <a href="https://arxiv.org/abs/2502.01506" target="_blank">here</a>.
+                </li>
+                <li class="news-item">
+                    <span class="news-date">01/2025:</span>
+                    📝 One paper accepted by <em>NAACL Findings 2025</em>. You can find the paper <a href="https://arxiv.org/pdf/2410.14059" target="_blank">here</a>.
+                </li>
+                <li class="news-item">
+                    <span class="news-date">09/2024:</span>
+                    🎓 Begin new journey as a master student at <a href="https://www.nju.edu.cn/en" target="_blank">Nanjing University</a>.
+                </li>
+                <li class="news-item">
+                    <span class="news-date">07/2024:</span>
+                    🔬 Start a RA position at <a href="https://www.cuhk.edu.cn/en" target="_blank">CUHK(SZ)</a> with <a href="https://wabyking.github.io/old.html" target="_blank">Prof. Benyou Wang</a>.
+                </li>
+                <li class="news-item">
+                    <span class="news-date">06/2024:</span>
+                    🎉 Graduate from Nanjing University!
+                </li>
+            </ul>
+            
+            <div class="pagination">
+                <button class="pagination-btn" id="prev-btn" onclick="changePage(-1)">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <span class="pagination-info">
+                    Page <span id="current-page">1</span> of <span id="total-pages">2</span>
+                </span>
+                <button class="pagination-btn" id="next-btn" onclick="changePage(1)">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications">
+            <h2>Selected Publications</h2>
+            <p style="text-align: center; color: #666; font-size: 0.95rem; margin-top: -15px; margin-bottom: 30px;">
+                * indicates equal contribution · 
+                <a href="https://scholar.google.com/citations?user=b4rGdr4AAAAJ" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 500;">Google Scholar</a> · 
+                <a href="publications.html" style="color: #667eea; text-decoration: none; font-weight: 500;">Detailed Publications</a>
+            </p>
+            
+            <div class="publication">
+                <div class="pub-title">
+                    R&D-Agent: An LLM-Agent Framework Towards Autonomous Data Science
+                </div>
+                <div class="pub-authors">
+                    Xu Yang, Xiao Yang, Shikai Fang, <strong>Yifei Zhang</strong>, Jian Wang, et al.
+                </div>
+                <div class="pub-award">
+                    <strong>Top-performing Open-source ML engineering agent on MLE-bench</strong>
+                </div>
+                <div class="pub-venue">
+                    arXiv preprint 2025
+                </div>
+                <div class="pub-tldr">
+                    <strong>TL;DR:</strong> A comprehensive, decoupled framework that formalizes the machine learning engineering process into Research and Development phases and six components, achieving <strong>35.1% any medal rate on MLE-Bench</strong>, SOTA among existing open-source ML engineering agents.
+                </div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2505.14738" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                    <a href="https://github.com/microsoft/RD-Agent" target="_blank"><i class="fab fa-github"></i> Code<span class="github-stars" data-repo="microsoft/RD-Agent"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">
+                    TwinMarket: A Scalable Behavioral and Social Simulation for Financial Markets
+                </div>
+                <div class="pub-authors">
+                    Yuzhe Yang*, <strong>Yifei Zhang*</strong>, Minghao Wu*, Kaidi Zhang, Yunmiao Zhang, et al.
+                </div>
+                <div class="pub-award">
+                    🏆 <strong>Best Paper Award</strong> @ ICLR 2025 Workshop on Advances in Financial AI (1/53)
+                </div>
+                <div class="pub-venue">
+                    NeurIPS 2025
+                </div>
+                <div class="pub-tldr">
+                    <strong>TL;DR:</strong> A <strong>multi-agent simulation platform</strong> for financial markets that integrates <strong>behavioral economics and social network dynamics</strong>, enabling large-scale market experiments with diverse agent behaviors.
+                </div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2502.01506" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                    <a href="https://github.com/freedomintelligence/TwinMarket" target="_blank"><i class="fab fa-github"></i> Code<span class="github-stars" data-repo="freedomintelligence/TwinMarket"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">
+                    UCFE: A User-Centric Financial Expertise Benchmark for Large Language Models
+                </div>
+                <div class="pub-authors">
+                    Yuzhe Yang*, <strong>Yifei Zhang*</strong>, Yan Hu*, Yilin Guo, Ruoli Gan, et al.
+                </div>
+                <div class="pub-award">
+                    🤗 <strong><a href="https://huggingface.co/papers/date/2024-10-21" target="_blank" style="color: inherit; text-decoration: none;">#1 Paper of the day on Hugging Face</a></strong>
+                </div>
+                <div class="pub-venue">
+                    NAACL Findings 2025
+                </div>
+                <div class="pub-tldr">
+                    <strong>TL;DR:</strong> A comprehensive benchmark evaluating LLMs' <strong>financial expertise from a user-centric perspective</strong>, covering domain knowledge, application capabilities, and trustworthiness across <strong>300+ real-world questions</strong>.
+                </div>
+                <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2410.14059" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+                    <a href="https://github.com/TobyYang7/UCFE-Benchmark" target="_blank"><i class="fab fa-github"></i> Code<span class="github-stars" data-repo="TobyYang7/UCFE-Benchmark"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">
+                    Shared Fortunes and Risks: Stock Price Spillover Effects of Corporate Ties — Evidence from the Chinese Social Media Platform "Xueqiu"
+                </div>
+                <div class="pub-authors">
+                    Honghai Yu, Yunmiao Zhang, Zhuo Chen, Chang Zeng, <strong>Yifei Zhang</strong>
+                </div>
+                <div class="pub-award">
+                    🎖️ <strong>Outstanding Paper Award</strong> (10/190)
+                </div>
+                <div class="pub-venue">
+                    The 7th Conference of the Chinese Society of Optimization, Overall Planning, and Economic Mathematics, 2025
+                </div>
+                <div class="pub-tldr">
+                    <strong>TL;DR:</strong> Investigates <strong>stock price spillover effects</strong> through <strong>corporate network ties on social media</strong>, revealing how social connections influence market dynamics and investor behavior.
+                </div>
+                <div class="pub-links">
+                    <a href="#" onclick="toggleAbstract('abstract-shared-fortunes'); return false;"><i class="fas fa-file-alt"></i> Abstract</a>
+                </div>
+                <div id="abstract-shared-fortunes" class="pub-abstract" style="display: none;">
+                    <strong>Abstract:</strong> This paper investigates the <strong>stock price spillover effects</strong> arising from <strong>corporate network ties on the Chinese social media platform "Xueqiu"</strong>. By constructing a comprehensive dataset of corporate relationships and stock price movements, we analyze how information and sentiment propagate through social networks and impact stock valuations. Our findings reveal significant spillover effects where connected firms experience correlated price movements, particularly during periods of high market volatility. We identify key mechanisms through which social media amplifies these effects, including information cascades, herding behavior, and investor attention. The results provide important insights into the role of social media in modern financial markets and have implications for portfolio management, risk assessment, and regulatory policy.
+                </div>
+            </div>
+
+           
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project-grid">
+                <!-- Project 1: RD-Agent -->
+                <div class="project-card">
+                    <div class="project-title">R&D-Agent</div>
+                    <div class="project-description">
+                        Automates the industrial R&D process with two key components: 'R' for proposing new ideas and 'D' for implementing them. Focuses on data-driven scenarios to streamline model and data development.
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Multi-Agent</span>
+                        <span class="project-tag">AutoML</span>
+                        <span class="project-tag">Open Source</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/microsoft/RD-Agent" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                    <div class="star-history">
+                        <a href="https://star-history.com/#microsoft/RD-Agent&Date">
+                            <picture>
+                                <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=microsoft/RD-Agent&type=Date&theme=dark" />
+                                <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=microsoft/RD-Agent&type=Date" />
+                                <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=microsoft/RD-Agent&type=Date" />
+                            </picture>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: AI-Trader -->
+                <div class="project-card">
+                    <div class="project-title">AI-Trader</div>
+                    <div class="project-description">
+                        An autonomous trading system where AI agents compete in NASDAQ 100, SSE 50, and cryptocurrency markets. Zero human intervention with pure algorithmic competition and strategy evolution.
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">FinTech</span>
+                        <span class="project-tag">Trading</span>
+                        <span class="project-tag">AI Agent</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/HKUDS/AI-Trader" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                    <div class="star-history">
+                        <a href="https://star-history.com/#HKUDS/AI-Trader&Date">
+                            <picture>
+                                <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=HKUDS/AI-Trader&type=Date&theme=dark" />
+                                <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=HKUDS/AI-Trader&type=Date" />
+                                <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=HKUDS/AI-Trader&type=Date" />
+                            </picture>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiences Section -->
+        <section id="experiences">
+            <h2>Experiences</h2>
+
+            <div class="experience-item">
+                <img src="img/msra.png" alt="MSRA" class="experience-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <i class="fas fa-building experience-logo" style="color: #00a4ef; display: none;"></i>
+                <div class="exp-header">
+                    <div class="exp-title">Microsoft Research Asia (MSRA)</div>
+                    <div class="exp-date">2025.05 – Present</div>
+                </div>
+                <div class="exp-role">Research Intern</div>
+                <div class="exp-advisor">Focusing on <strong>Autonomous Agent</strong> research | Advised by <a href="https://www.microsoft.com/en-us/research/people/xiaoyang/" target="_blank">Xiao Yang</a></div>
+            </div>
+
+            <div class="experience-item">
+                <img src="img/nju.png" alt="NJU" class="experience-logo">
+                <div class="exp-header">
+                    <div class="exp-title">Nanjing University</div>
+                    <div class="exp-date">2024.09 – Present</div>
+                </div>
+                <div class="exp-role">Master's Student in Financial Engineering and Fintech</div>
+                <div class="exp-advisor">School of Management & Engineering | Advised by <a href="https://sme.nju.edu.cn/yhh/list.htm" target="_blank">Prof. Honghai Yu</a></div>
+            </div>
+
+            <div class="experience-item">
+                <img src="img/cuhksz.png" alt="CUHK" class="experience-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <i class="fas fa-university experience-logo" style="color: #7f1084; display: none;"></i>
+                <div class="exp-header">
+                    <div class="exp-title">CUHK-Shenzhen NLP Group</div>
+                    <div class="exp-date">2024.07 – 2025.05</div>
+                </div>
+                <div class="exp-role">Research Assistant</div>
+                <div class="exp-advisor">Exploring <strong>Large Language Models in Finance</strong> | Advised by <a href="https://sds.cuhk.edu.cn/teacher/571" target="_blank">Prof. Benyou Wang</a></div>
+            </div>
+
+
+            <div class="experience-item">
+                <img src="img/nju.png" alt="NJU" class="experience-logo">
+                <div class="exp-header">
+                    <div class="exp-title">Nanjing University</div>
+                    <div class="exp-date">2020.09 – 2024.06</div>
+                </div>
+                <div class="exp-role">Bachelor in Computer Science and Technology</div>
+                <div class="exp-advisor">Computer & Financial Engineering Experimental Class (<strong></strong>Top Talent Program</strong>)</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024-2025 Yifei Zhang. All rights reserved.</p>
+            <p>Email: <a href="mailto:yf_zhang@smail.nju.edu.cn" style="color: #667eea; text-decoration: none;">yf_zhang@smail.nju.edu.cn</a></p>
+        </div>
+    </footer>
+
+    <!-- WeChat Modal -->
+    <div id="wechat-modal" class="wechat-modal" onclick="closeWechat(event)">
+        <div class="wechat-content" onclick="event.stopPropagation()">
+            <span class="wechat-close" onclick="closeWechat()">&times;</span>
+            <h3><i class="fab fa-weixin" style="color: #09bb07;"></i> WeChat QR Code</h3>
+            <img src="img/wechat.png" alt="WeChat QR Code" id="wechat-qr">
+            <p>Scan the QR code to add me on WeChat</p>
+        </div>
+    </div>
+
+    <script>
+        // News Pagination
+        let currentNewsPage = 1;
+        const newsPerPage = 5;
+
+        function showNewsPage(page) {
+            const newsItems = document.querySelectorAll('.news-item');
+            const totalPages = Math.ceil(newsItems.length / newsPerPage);
+            
+            // Hide all items
+            newsItems.forEach(item => item.classList.remove('active'));
+            
+            // Show items for current page
+            const start = (page - 1) * newsPerPage;
+            const end = start + newsPerPage;
+            for (let i = start; i < end && i < newsItems.length; i++) {
+                newsItems[i].classList.add('active');
+            }
+            
+            // Update pagination info
+            document.getElementById('current-page').textContent = page;
+            document.getElementById('total-pages').textContent = totalPages;
+            
+            // Update button states
+            document.getElementById('prev-btn').disabled = (page === 1);
+            document.getElementById('next-btn').disabled = (page === totalPages);
+        }
+
+        function changePage(direction) {
+            const newsItems = document.querySelectorAll('.news-item');
+            const totalPages = Math.ceil(newsItems.length / newsPerPage);
+            
+            currentNewsPage += direction;
+            if (currentNewsPage < 1) currentNewsPage = 1;
+            if (currentNewsPage > totalPages) currentNewsPage = totalPages;
+            
+            showNewsPage(currentNewsPage);
+        }
+
+        // Initialize news pagination on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showNewsPage(1);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || !href) return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const headerOffset = 100; // Offset for fixed header
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // WeChat modal functions
+        function showWechat(event) {
+            event.preventDefault();
+            document.getElementById('wechat-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWechat(event) {
+            if (event) event.preventDefault();
+            document.getElementById('wechat-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeWechat();
+            }
+        });
+
+        // Toggle abstract display
+        function toggleAbstract(id) {
+            const abstract = document.getElementById(id);
+            if (abstract.style.display === 'none' || abstract.style.display === '') {
+                abstract.style.display = 'block';
+            } else {
+                abstract.style.display = 'none';
+            }
+        }
+
+        // Fetch GitHub stars
+        async function fetchGitHubStars(repo) {
+            try {
+                const response = await fetch(`https://api.github.com/repos/${repo}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.stargazers_count;
+                }
+            } catch (error) {
+                console.error(`Error fetching stars for ${repo}:`, error);
+            }
+            return null;
+        }
+
+        // Format star count (e.g., 1.2k, 3.4k)
+        function formatStarCount(count) {
+            if (count >= 1000) {
+                return (count / 1000).toFixed(1) + 'k';
+            }
+            return count.toString();
+        }
+
+        // Load GitHub stars for all repos
+        async function loadGitHubStars() {
+            const starElements = document.querySelectorAll('.github-stars');
+            for (const element of starElements) {
+                const repo = element.getAttribute('data-repo');
+                if (repo) {
+                    const stars = await fetchGitHubStars(repo);
+                    if (stars !== null) {
+                        const countSpan = element.querySelector('.star-count');
+                        countSpan.textContent = formatStarCount(stars);
+                    }
+                }
+            }
+        }
+
+        // Load stars when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGitHubStars();
+        });
+    </script>
+</body>
+</html>
