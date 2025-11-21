@@ -94,6 +94,30 @@
             margin-right: 5px;
         }
 
+        .email-header {
+            font-size: 1.05rem;
+            color: #333;
+            margin: 8px 0 18px 0;
+            font-weight: 500;
+        }
+
+        .email-header i {
+            color: #667eea;
+            margin-right: 8px;
+        }
+
+        .email-header a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .email-header a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
         /* Navigation */
         nav {
             padding: 25px 0;
@@ -817,6 +841,51 @@
                 margin-bottom: 8px;
             }
         }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -828,6 +897,10 @@
                 <div class="header-text">
                     <h1>Yifei Zhang (张逸飞)</h1>
                     <p class="subtitle">Per aspera ad astra</p>
+                    <p class="email-header">
+                        <i class="fas fa-envelope"></i> 
+                        <a href="mailto:yf_zhang@smail.nju.edu.cn">yf_zhang@smail.nju.edu.cn</a>
+                    </p>
                     <div class="social-links">
                         <a href="https://scholar.google.com/citations?hl=en&user=b4rGdr4AAAAJ" target="_blank">
                             <i class="fas fa-graduation-cap"></i> Google Scholar
@@ -1164,6 +1237,13 @@
         </div>
     </div>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
     <script>
         // News Pagination
         let currentNewsPage = 1;
@@ -1299,6 +1379,24 @@
         // Load stars when page loads
         document.addEventListener('DOMContentLoaded', function() {
             loadGitHubStars();
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
