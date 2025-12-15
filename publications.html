@@ -436,7 +436,6 @@
             <div class="filter-tags">
                 <span class="filter-tag active" data-filter="all">All</span>
                 <span class="filter-tag" data-filter="cs">CS</span>
-                <span class="filter-tag" data-filter="cs-finance">CS & Finance</span>
                 <span class="filter-tag" data-filter="finance">Finance</span>
             </div>
 
@@ -479,8 +478,43 @@
                     </div>
                 </div>
 
+                <!-- AI-Trader -->
+                <div class="publication-card" data-tags="cs">
+                    <div class="pub-image">
+                        <img src="img/AI_Trader.png" alt="AI-Trader" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
+                    </div>
+                    <div class="pub-content">
+                        <div class="pub-title">
+                            <a href="https://arxiv.org/abs/2512.10971" target="_blank">AI-Trader: Benchmarking Autonomous Agents in Real-Time Financial Markets</a>
+                        </div>
+                        <div class="pub-authors">
+                            Tianyu Fan, Yuhao Yang, Yangqin Jiang, <strong>Yifei Zhang</strong>, Yuxuan Chen, Chao Huang, et al.
+                        </div>
+                        <div class="pub-venue">
+                            arXiv preprint 2025
+                        </div>
+                        <div class="pub-award">
+                            <span class="award-badge">🚀 Fully-automated and data-uncontaminated benchmark for LLM agents in finance</span>
+                        </div>
+                        <div class="pub-description">
+                            A comprehensive benchmark for evaluating <strong>autonomous trading agents</strong> in real-time financial markets across <strong>NASDAQ 100, SSE 50, and cryptocurrency markets</strong>, enabling fair comparison of AI trading strategies with zero human intervention.
+                        </div>
+                        <div class="pub-links">
+                            <a href="https://arxiv.org/abs/2512.10971" target="_blank" class="pub-link-btn">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                            <a href="https://github.com/HKUDS/AI-Trader" target="_blank" class="pub-link-btn">
+                                <i class="fab fa-github"></i> Code
+                                <span class="github-stars" data-repo="HKUDS/AI-Trader">
+                                    <i class="fas fa-star"></i><span class="star-count">...</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- TwinMarket -->
-                <div class="publication-card" data-tags="cs-finance">
+                <div class="publication-card" data-tags="cs">
                     <div class="pub-image">
                         <img src="img/TwinMarket.jpg" alt="TwinMarket" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
                     </div>
@@ -515,7 +549,7 @@
                 </div>
 
                 <!-- UCFE -->
-                <div class="publication-card" data-tags="cs-finance">
+                <div class="publication-card" data-tags="cs">
                     <div class="pub-image">
                         <img src="img/UCFE.png" alt="UCFE" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
                     </div>
@@ -545,6 +579,38 @@
                                     <i class="fas fa-star"></i><span class="star-count">...</span>
                                 </span>
                             </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- True Gold Shines Through -->
+                <div class="publication-card" data-tags="finance">
+                    <div class="pub-image">
+                        <img src="img/true_gold.png" alt="True Gold Shines Through" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
+                    </div>
+                    <div class="pub-content">
+                        <div class="pub-title">
+                            Separating Skill from Luck: LLM-Based Belief Extraction and Investment Ability Measurement of Financial Influencers
+                        </div>
+                        <div class="pub-authors">
+                            Honghai Yu, Yunmiao Zhang, Haining Wang, <strong>Yifei Zhang</strong>
+                        </div>
+                        <div class="pub-venue">
+                            Chengdu Four-University Joint Finance Forum & The 7th Finance PhD Academic Forum, 2025
+                        </div>
+                        <div class="pub-award">
+                            <span class="award-badge">🏅 Outstanding Paper Award (2/20)</span>
+                        </div>
+                        <div class="pub-description">
+                            Analyzes <strong>10M+ posts from 60,000+ financial influencers</strong> on Xueqiu using LLMs to extract stock expectations, combined with <strong>finite mixture models</strong> to separate skill from luck. Findings reveal only <strong>46.63% possess positive investment ability</strong>, while following top 10% yields 22.4 bps daily returns.
+                        </div>
+                        <div class="pub-links">
+                            <a href="#" onclick="toggleAbstract('abstract-true-gold'); return false;" class="pub-link-btn">
+                                <i class="fas fa-file-alt"></i> Abstract
+                            </a>
+                        </div>
+                        <div id="abstract-true-gold" style="display: none; margin-top: 15px; padding: 15px; background: #f0f4ff; border-left: 3px solid #667eea; border-radius: 4px; font-size: 0.9rem; line-height: 1.7;">
+                            <strong>Abstract:</strong> This study leverages <strong>Large Language Models</strong> to extract stock expectation beliefs from millions of posts by 60,000+ financial influencers on Xueqiu, and employs <strong>finite mixture models with EM algorithm</strong> to filter out "luck noise" and scientifically measure actual investment abilities. Results show only <strong>46.63% of influencers possess positive investment ability</strong>, with merely 2.22% achieving strong weekly returns of 1.25%. A long-short portfolio following top 10% influencers yields <strong>22.4 bps daily returns</strong> and <strong>4.94x cumulative returns</strong> from 2016-2025. Retail investors struggle to identify skilled influencers, while institutional investors respond more to high-ability KOLs. The methodology provides regulators and platforms with tools to identify and monitor financial social media content.
                         </div>
                     </div>
                 </div>
@@ -587,7 +653,7 @@
                 <h2 class="year-header">2024</h2>
 
                 <!-- Open-FinLLMs -->
-                <div class="publication-card" data-tags="cs-finance">
+                <div class="publication-card" data-tags="cs">
                     <div class="pub-image">
                         <img src="img/finllava.png" alt="Open-FinLLMs" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
                     </div>
@@ -632,6 +698,9 @@
                         </div>
                         <div class="pub-venue">
                             The 21st Annual Conference on Financial Engineering and Risk Management, 2024
+                        </div>
+                        <div class="pub-award">
+                            <span class="award-badge">📊 Distinguishing noise from information through trading behavior</span>
                         </div>
                         <div class="pub-description">
                             Examines whether posts on Chinese social media propagate noise or information, proposing that both coexist but can be distinguished by <strong>posters' trading behavior</strong>. Observing trading actions helps assess the reliability of expressed views.
@@ -736,7 +805,8 @@
                     
                     if (filter === 'all') {
                         pub.classList.remove('hidden');
-                    } else if (tags && tags.includes(filter)) {
+                    } else if (tags === filter) {
+                        // Exact match for precise filtering
                         pub.classList.remove('hidden');
                     } else {
                         pub.classList.add('hidden');
