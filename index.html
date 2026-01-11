@@ -432,6 +432,55 @@
             border-color: #0066cc;
         }
 
+        /* Under Review / Submitted */
+        .under-review-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0 auto;
+            max-width: 980px;
+        }
+
+        .under-review-item {
+            margin: 0 0 18px 0;
+            padding: 18px 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .under-review-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .under-review-authors {
+            color: #2c3e50;
+            line-height: 1.7;
+            font-size: 1.02rem;
+        }
+
+        .under-review-title {
+            margin-top: 6px;
+            color: #1a1a1a;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .under-review-meta {
+            margin-top: 6px;
+            font-weight: 600;
+            color: #0066cc;
+            font-size: 0.98rem;
+        }
+
+        .under-review-desc {
+            margin-top: 10px;
+            color: #555;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
         .github-stars {
             display: inline-flex;
             align-items: center;
@@ -925,6 +974,7 @@
         <div class="container">
             <ul>
                 <li><a href="#news">News</a></li>
+                <li><a href="#working-papers">Working Papers</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#experiences">Experiences</a></li>
@@ -942,7 +992,7 @@
 
                 <p>Currently, I am a research intern at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank">Microsoft Research Asia (MSRA)</a>, advised by <a href="https://www.microsoft.com/en-us/research/people/xiaoyang/" target="_blank">Xiao Yang</a>, focusing on <strong>Autonomous Agent</strong> research. Previously, I had the privilege of collaborating with <a href="https://sds.cuhk.edu.cn/teacher/571" target="_blank">Prof. Benyou Wang</a> and <a href="http://jszy.whu.edu.cn/xieqianqian/zh_CN/index/1646702/list/" target="_blank">Prof. Qianqian Xie</a> on exploring <strong>Large Language Models in Finance</strong>.</p>
 
-                <p>I have published at top-tier conferences including <em>NeurIPS</em> and <em>NAACL</em>. Notably, one of my papers received the <strong>Best Paper Award</strong> at the <em>ICLR 2025 Workshop on Advances in Financial AI</em>, where I presented it as an oral presentation in Singapore. My research interests span <strong>Narrative Economics, Financial Applications of LLMs, and Multi-Agent Systems.</strong></p>
+                <p>I have published at top-tier conferences including <em>NeurIPS</em> and <em>NAACL</em>. Notably, one of my papers received the <strong>Best Paper Award</strong> at the <em>ICLR 2025 Workshop on Advances in Financial AI</em>, where I presented it as an oral presentation in Singapore. My research interests span <strong>LLM Agents, Autonomous Agents, and Financial Applications of LLMs.</strong></p>
 
                 <div class="resume-links">
                     <strong>📄 More about me:</strong>
@@ -1005,6 +1055,28 @@
                     Next <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
+        </section>
+
+        <!-- Working Papers Section -->
+        <section id="working-papers">
+            <h2>Working Papers</h2>
+            <p style="text-align: center; color: #666; font-size: 0.95rem; margin-top: -15px; margin-bottom: 30px;">
+                Manuscripts under review / in preparation.
+            </p>
+
+            <ul class="under-review-list">
+                <li class="under-review-item">
+                    <div class="under-review-authors">
+                        <strong>Zhang, Y.</strong>, Yang, X., Yang, X., Xian, B., Li, Q., Fang, S. <em>et al.</em>
+                    </div>
+                    <div class="under-review-meta">
+                        Submitted to <strong>ACL</strong> (<em>under review</em>).
+                    </div>
+                    <div class="under-review-desc">
+                        We propose a <strong>gradient-based MLE agent</strong> that achieves SOTA on MLE-Bench under a closed-world protocol. Scaling experiments show that <strong>gradient-based optimization</strong> increasingly outperforms tree search as reasoning capabilities advance, aligning with the rapid development of reasoning-oriented LLMs.
+                    </div>
+                </li>
+            </ul>
         </section>
 
         <!-- Publications Section -->
