@@ -8,9 +8,9 @@ echo ""
 
 # Try Python 3 first, then Python 2
 if command -v python3 &> /dev/null; then
-    python3 -m http.server 8032
+    python3 -m http.server 8035
 elif command -v python &> /dev/null; then
-    python -m http.server 8032
+    python -m http.server 8035
 else
     echo "Error: Python is not installed!"
     exit 1
