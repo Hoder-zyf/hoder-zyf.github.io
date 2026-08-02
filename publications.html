@@ -3,451 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Publications — Yifei Zhang (张逸飞)">
     <title>Publications - Yifei Zhang</title>
     <link rel="icon" type="image/png" href="img/nju.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #ffffff;
-        }
-
-        /* Header */
-        header {
-            background: white;
-            padding: 20px 0;
-            border-bottom: 1px solid #e5e5e5;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            text-decoration: none;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 35px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: #667eea;
-        }
-
-        /* Main Content */
-        main {
-            padding: 60px 0 80px;
-        }
-
-        .page-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-            letter-spacing: -0.02em;
-        }
-
-        .page-subtitle {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 50px;
-        }
-
-        .filter-tags {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .filter-tag {
-            padding: 8px 20px;
-            background: white;
-            border: 2px solid #e5e5e5;
-            border-radius: 25px;
-            color: #666;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .filter-tag:hover {
-            border-color: #667eea;
-            color: #667eea;
-            transform: translateY(-2px);
-        }
-
-        .filter-tag.active {
-            background: #667eea;
-            border-color: #667eea;
-            color: white;
-        }
-
-        .publication-card.hidden {
-            display: none;
-        }
-
-        .year-section {
-            margin-bottom: 60px;
-        }
-
-        .year-header {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .publication-card {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 50px;
-            padding: 25px;
-            background: #ffffff;
-            border: 1px solid #e5e5e5;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-
-        .publication-card:hover {
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .pub-image {
-            flex-shrink: 0;
-            width: 400px;
-            height: 240px;
-            border-radius: 6px;
-            overflow: hidden;
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #e5e5e5;
-        }
-
-        .pub-image img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            object-position: center center;
-            image-rendering: auto;
-            -ms-interpolation-mode: bicubic;
-            display: block;
-            margin: auto;
-        }
-
-        .pub-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pub-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        .pub-title a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .pub-title a:hover {
-            color: #667eea;
-        }
-
-        .pub-authors {
-            font-size: 0.95rem;
-            color: #555;
-            margin-bottom: 8px;
-            line-height: 1.5;
-        }
-
-        .pub-authors strong {
-            color: #1a1a1a;
-            font-weight: 600;
-        }
-
-        .pub-venue {
-            font-size: 0.95rem;
-            color: #666;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-
-        .pub-venue.accepted {
-            display: inline-block;
-            padding: 4px 12px;
-            background: #eef2ff;
-            color: #4338ca;
-            border: 1.5px solid #c7d2fe;
-            border-radius: 20px;
-            font-weight: 600;
-            font-style: normal;
-            font-size: 0.88rem;
-            margin-bottom: 10px;
-        }
-
-
-        .publication-card.accepted {
-            border-left: 3px solid #667eea;
-        }
-
-        .pub-award {
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        .award-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 4px 10px;
-            background: linear-gradient(45deg, #ffdd00, #ffaa00);
-            color: #1a1a1a;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .award-badge.best-paper {
-            background: linear-gradient(45deg, #c41e3a, #ff6b6b);
-            color: white;
-        }
-
-        .award-badge.huggingface {
-            background: linear-gradient(45deg, #ff9d00, #ffc837);
-            color: #1a1a1a;
-        }
-
-        .pub-description {
-            font-size: 0.92rem;
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-
-        .pub-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: auto;
-        }
-
-        .pub-link-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
-            background: white;
-            color: #667eea;
-            text-decoration: none;
-            border: 1px solid #667eea;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .pub-link-btn:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        .pub-link-btn .github-stars {
-            display: inline-flex;
-            align-items: center;
-            margin-left: 8px;
-            padding: 2px 8px;
-            background: #f6f8fa;
-            border: 1px solid #d0d7de;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            color: #57606a;
-            font-weight: 500;
-            vertical-align: middle;
-        }
-
-        .pub-link-btn .github-stars i {
-            color: #f1c40f;
-            margin-right: 4px;
-            font-size: 0.7rem;
-        }
-
-        .pub-link-btn:hover .github-stars {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-            color: white;
-        }
-
-        .pub-link-btn:hover .github-stars i {
-            color: #ffd700;
-        }
-
-        /* Footer */
-        footer {
-            background: #f8f9fa;
-            padding: 30px 0;
-            text-align: center;
-            border-top: 1px solid #e5e5e5;
-        }
-
-        footer p {
-            color: #666;
-            font-size: 0.9rem;
-            margin: 5px 0;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .publication-card {
-                flex-direction: column;
-                gap: 20px;
+    <script>
+        document.documentElement.classList.add('js');
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (t !== 'light' && t !== 'dark') {
+                t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             }
-
-            .pub-image {
-                width: 100%;
-                height: 200px;
-            }
-
-            .page-title {
-                font-size: 2rem;
-            }
-
-            .year-header {
-                font-size: 1.6rem;
-            }
-
-            nav ul {
-                gap: 20px;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .back-to-top:active {
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
-        }
-    </style>
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=20260802">
+    <script src="main.js?v=20260802" defer></script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">Yifei Zhang</a>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#news">News</a></li>
-                        
-                        <li><a href="index.html#projects">Projects</a></li>
-                        <li><a href="index.html#experiences">Experiences</a></li>
-                        <li><a href="pdf/en-cv-zyf.pdf" target="_blank">CV</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <!-- Top bar -->
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="site-name">Yifei Zhang</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html#news">News</a></li>
+                    <li><a href="publications.html" class="active">Publications</a></li>
+                    <li><a href="index.html#experiences">Experiences</a></li>
+                    <li><a href="pdf/en-cv-zyf.pdf" target="_blank">CV</a></li>
+                    <li>
+                        <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
+                            <i class="fas fa-sun icon-sun"></i>
+                            <i class="fas fa-moon icon-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main>
-        <div class="container">
+    <main class="container">
+        <div class="page-head">
             <h1 class="page-title">Publications</h1>
-            <p class="page-subtitle" style="margin-top: 0; margin-bottom: 5px;">* indicates equal contribution</p> 
-            <p class="page-subtitle" style="margin-top: 0;">
-                Discover more on <a href="https://scholar.google.com/citations?user=b4rGdr4AAAAJ" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 500;">Google Scholar</a>
+            <p class="page-subtitle">* indicates equal contribution</p>
+            <p class="page-subtitle">
+                Discover more on <a href="https://scholar.google.com/citations?user=b4rGdr4AAAAJ" target="_blank">Google Scholar</a>
             </p>
 
             <!-- Filter Tags -->
@@ -456,360 +61,316 @@
                 <span class="filter-tag" data-filter="cs">CS</span>
                 <span class="filter-tag" data-filter="finance">Finance</span>
             </div>
+        </div>
 
-            <!-- 2026 -->
-            <div class="year-section">
-                <h2 class="year-header">2026</h2>
+        <!-- 2026 -->
+        <div class="year-section">
+            <h2 class="year-header">2026</h2>
 
-                <!-- Reasoning as Gradient -->
-                <div class="publication-card accepted" data-tags="cs">
-                    <div class="pub-image">
-                        <img src="img/gome.jpg" alt="Gome" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
+            <!-- AI4AI at Scale -->
+            <div class="publication-card" data-tags="cs">
+                <div class="pub-entry-body">
+                    <div class="pub-title">
+                        <a href="http://xyz-lab.ai/blogs/ai4ai-at-scale/assets/bounded-exploration-ai4ai-system-optimization.pdf" target="_blank">AI4AI at Scale: A Full-Pipeline System for Enhancing LLM Agentic Capabilities</a>
                     </div>
-                    <div class="pub-content">
-                        <div class="pub-title">
-                            <a href="https://arxiv.org/abs/2603.01692" target="_blank">Reasoning as Gradient: Scaling MLE Agents Beyond Tree Search</a> <span style="color: #667085; font-size: 0.95rem; font-weight: 600;">(MLE Setting of RD-Agent)</span>
-                        </div>
-                        <div class="pub-authors">
-                            <strong>Yifei Zhang*</strong>, Xu Yang*, Xiao Yang*, Bowen Xian, Qizheng Li, Shikai Fang, Jingyuan Li, Jian Wang, Mingrui Xu, Weiqing Liu, Jiang Bian
-                        </div>
-                        <div class="pub-venue accepted">
-                            Findings of ACL 2026
-                        </div>
-                        <div class="pub-award">
-                            <span class="award-badge">📈 Gradient-based optimization scales better than tree search with stronger reasoning models</span>
-                        </div>
-                        <div class="pub-description">
-                            We introduce <strong>Gome</strong>, the <strong>MLE setting of RD-Agent</strong>, mapping diagnostic reasoning to gradient computation, success memory to momentum, and multi-trace execution to distributed optimization. <strong>Under a closed-world protocol</strong>, it reaches <strong>35.1% any-medal rate on MLE-Bench</strong> with a 12-hour single-V100 budget, and scaling experiments show that <strong>gradient-based optimization increasingly outperforms gradient-free tree search</strong> as model reasoning capabilities improve.
-                        </div>
-                        <div class="pub-links">
-                            <a href="https://arxiv.org/abs/2603.01692" target="_blank" class="pub-link-btn">
-                                <i class="fas fa-file-pdf"></i> arXiv
-                            </a>
-                            <a href="https://huggingface.co/datasets/amstrongzyf/Gome-GPT5-Traces" target="_blank" class="pub-link-btn">
-                                🤗 Dataset
-                            </a>
-                            <a href="https://github.com/microsoft/RD-Agent" target="_blank" class="pub-link-btn">
-                                <i class="fab fa-github"></i> Project Repo
-                                <span class="github-stars" data-repo="microsoft/RD-Agent">
-                                    <i class="fas fa-star"></i><span class="star-count">...</span>
-                                </span>
-                            </a>
-                        </div>
+                    <div class="pub-authors">
+                        XYZ Agentic Team
+                    </div>
+                    <div class="pub-meta">
+                        <span class="pub-venue preprint">XYZ AI LAB Technical Report, 2026</span>
+                        <span class="pub-award">🚀 Highest reported scores on BrowseComp-ZH, LiveBrowseComp, and WideSearch among listed systems</span>
+                    </div>
+                    <div class="pub-desc">
+                        We present <strong>AI4AI</strong>, a <strong>bounded-exploration, verification-gated framework</strong> for improving complete agentic systems, instantiated in <strong>XYZ-Aquila</strong>, a family of open-weight Deep Search agents. XYZ-Aquila-mini attains the highest score in every column of the seven-benchmark sub-40B open-weight table, while XYZ-Aquila-pro leads the sub-400B table.
+                    </div>
+                    <div class="pub-links">
+                        <a href="http://xyz-lab.ai/blogs/ai4ai-at-scale/assets/bounded-exploration-ai4ai-system-optimization.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                        <a href="https://huggingface.co/XYZAILab/XYZ-Aquila-pro" target="_blank">🤗 Model</a>
+                        <a href="https://github.com/XYZ-AI-Lab/AxisAgentic" target="_blank"><i class="fab fa-github"></i> Harness<span class="github-stars" data-repo="XYZ-AI-Lab/AxisAgentic"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
                     </div>
                 </div>
-
-                <!-- FT-Dojo -->
-                <div class="publication-card" data-tags="cs">
-                    <div class="pub-image">
-                        <img src="img/FT-Dojo.png" alt="FT-Dojo" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
-                    </div>
-                    <div class="pub-content">
-                        <div class="pub-title">
-                            <a href="https://arxiv.org/abs/2603.01712" target="_blank">FT-Dojo: Towards Autonomous LLM Fine-Tuning with Language Agents</a> <span style="color: #667085; font-size: 0.95rem; font-weight: 600;">(Fine-Tuning Setting of RD-Agent)</span>
-                        </div>
-                        <div class="pub-authors">
-                            Qizheng Li*, <strong>Yifei Zhang*</strong>, Xiao Yang*, Xu Yang*, Zhuo Wang, Weiqing Liu, Jiang Bian
-                        </div>
-                        <div class="pub-venue accepted">
-                            ICML 2026
-                        </div>
-                        <div class="pub-award">
-                            <span class="award-badge">🤖 Benchmarking autonomous end-to-end LLM fine-tuning</span>
-                        </div>
-                        <div class="pub-description">
-                            We introduce <strong>FT-Dojo</strong>, the <strong>fine-tuning setting of RD-Agent</strong>, with <strong>13 tasks across 5 domains</strong> for autonomous LLM fine-tuning, together with <strong>FT-Agent</strong>, a purpose-built system that achieves the best performance on <strong>10 of 13 tasks</strong> and iteratively improves strategies from evaluation history.
-                        </div>
-                        <div class="pub-links">
-                            <a href="https://arxiv.org/abs/2603.01712" target="_blank" class="pub-link-btn">
-                                <i class="fas fa-file-pdf"></i> arXiv
-                            </a>
-                            <a href="https://github.com/microsoft/RD-Agent" target="_blank" class="pub-link-btn">
-                                <i class="fab fa-github"></i> Project Repo
-                                <span class="github-stars" data-repo="microsoft/RD-Agent">
-                                    <i class="fas fa-star"></i><span class="star-count">...</span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
+                <div class="pub-thumb">
+                    <img src="img/ai4ai.png" alt="AI4AI at Scale" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
                 </div>
             </div>
 
-            <!-- 2025 -->
-            <div class="year-section">
-                <h2 class="year-header">2025</h2>
-
-                <!-- R&D-Agent -->
-                <div class="publication-card" data-tags="cs">
-                    <div class="pub-image">
-                        <img src="img/RDAgent.png" alt="R&D-Agent" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
+            <!-- Reasoning as Gradient -->
+            <div class="publication-card" data-tags="cs">
+                <div class="pub-entry-body">
+                    <div class="pub-title">
+                        <a href="https://arxiv.org/abs/2603.01692" target="_blank">Reasoning as Gradient: Scaling MLE Agents Beyond Tree Search</a>
+                        <span class="pub-scene">(MLE Setting of RD-Agent)</span>
                     </div>
-                    <div class="pub-content">
-                        <div class="pub-title">
-                            <a href="https://arxiv.org/abs/2505.14738" target="_blank">R&D-Agent: An LLM-Agent Framework Towards Autonomous Data Science</a> <span style="color: #667085; font-size: 0.95rem; font-weight: 600;">(Technical Report)</span>
-                        </div>
-                        <div class="pub-authors">
-                            Xu Yang, Xiao Yang, Shikai Fang, <strong>Yifei Zhang</strong>, Jian Wang, et al.
-                        </div>
-                        <div class="pub-venue">
-                            arXiv preprint 2025
-                        </div>
-                        <div class="pub-award">
-                            <span class="award-badge">🏅 Top-performing open-source framework on MLE-Bench</span>
-                        </div>
-                        <div class="pub-description">
-                            A top-performing open-source framework on MLE-Bench that organizes autonomous data science into two parts: <strong>Research</strong> for proposing ideas and <strong>Development</strong> for converting them into executable workflows and solutions.
-                        </div>
-                        <div class="pub-links">
-                            <a href="https://arxiv.org/abs/2505.14738" target="_blank" class="pub-link-btn">
-                                <i class="fas fa-file-pdf"></i> arXiv
-                            </a>
-                            <a href="https://github.com/microsoft/RD-Agent" target="_blank" class="pub-link-btn">
-                                <i class="fab fa-github"></i> Project Repo
-                                <span class="github-stars" data-repo="microsoft/RD-Agent">
-                                    <i class="fas fa-star"></i><span class="star-count">...</span>
-                                </span>
-                            </a>
-                        </div>
+                    <div class="pub-authors">
+                        <strong>Yifei Zhang*</strong>, Xu Yang*, Xiao Yang*, Bowen Xian, Qizheng Li, Shikai Fang, Jingyuan Li, Jian Wang, Mingrui Xu, Weiqing Liu, Jiang Bian
+                    </div>
+                    <div class="pub-meta">
+                        <span class="pub-venue">Findings of ACL 2026</span>
+                        <span class="pub-award">📈 Gradient-based optimization scales better than tree search with stronger reasoning models</span>
+                    </div>
+                    <div class="pub-desc">
+                        We introduce <strong>Gome</strong>, the <strong>MLE setting of RD-Agent</strong>, mapping diagnostic reasoning to gradient computation, success memory to momentum, and multi-trace execution to distributed optimization. <strong>Under a closed-world protocol</strong>, it reaches <strong>35.1% any-medal rate on MLE-Bench</strong> with a 12-hour single-V100 budget, and scaling experiments show that <strong>gradient-based optimization increasingly outperforms gradient-free tree search</strong> as model reasoning capabilities improve.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2603.01692" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
+                        <a href="https://huggingface.co/datasets/amstrongzyf/Gome-GPT5-Traces" target="_blank">🤗 Dataset</a>
+                        <a href="https://github.com/microsoft/RD-Agent" target="_blank"><i class="fab fa-github"></i> Project Repo<span class="github-stars" data-repo="microsoft/RD-Agent"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
                     </div>
                 </div>
-
-                <!-- AI-Trader -->
-                <div class="publication-card" data-tags="cs">
-                    <div class="pub-image">
-                        <img src="img/AI_Trader.png" alt="AI-Trader" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
-                    </div>
-                    <div class="pub-content">
-                        <div class="pub-title">
-                            <a href="https://arxiv.org/abs/2512.10971" target="_blank">AI-Trader: Benchmarking Autonomous Agents in Real-Time Financial Markets</a>
-                        </div>
-                        <div class="pub-authors">
-                            Tianyu Fan, Yuhao Yang, Yangqin Jiang, <strong>Yifei Zhang</strong>, Yuxuan Chen, Chao Huang, et al.
-                        </div>
-                        <div class="pub-venue">
-                            arXiv preprint 2025
-                        </div>
-                        <div class="pub-award">
-                            <span class="award-badge">🚀 Fully-automated and data-uncontaminated benchmark for LLM agents in finance</span>
-                        </div>
-                        <div class="pub-description">
-                            A comprehensive benchmark for evaluating <strong>autonomous trading agents</strong> in real-time financial markets across <strong>NASDAQ 100, SSE 50, and cryptocurrency markets</strong>, enabling fair comparison of AI trading strategies with zero human intervention.
-                        </div>
-                        <div class="pub-links">
-                            <a href="https://arxiv.org/abs/2512.10971" target="_blank" class="pub-link-btn">
-                                <i class="fas fa-file-pdf"></i> arXiv
-                            </a>
-                            <a href="https://github.com/HKUDS/AI-Trader" target="_blank" class="pub-link-btn">
-                                <i class="fab fa-github"></i> Code
-                                <span class="github-stars" data-repo="HKUDS/AI-Trader">
-                                    <i class="fas fa-star"></i><span class="star-count">...</span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TwinMarket -->
-                <div class="publication-card accepted" data-tags="cs">
-                    <div class="pub-image">
-                        <img src="img/TwinMarket.jpg" alt="TwinMarket" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
-                    </div>
-                    <div class="pub-content">
-                        <div class="pub-title">
-                            <a href="https://arxiv.org/abs/2502.01506" target="_blank">TwinMarket: A Scalable Behavioral and Social Simulation for Financial Markets</a>
-                        </div>
-                        <div class="pub-authors">
-                            Yuzhe Yang*, <strong>Yifei Zhang*</strong>, Minghao Wu*, Kaidi Zhang, Yunmiao Zhang, et al.
-                        </div>
-                        <div class="pub-venue accepted">
-                            NeurIPS 2025
-                        </div>
-                        <div class="pub-award">
-                            <span class="award-badge best-paper">🏆 Best Paper Award, ICLR 2025 Workshop on Advances in Financial AI (1/53)</span>
-                        </div>
-                        <div class="pub-description">
-                            A <strong>multi-agent simulation platform</strong> for financial markets that integrates <strong>behavioral economics and social network dynamics</strong>, enabling large-scale market experiments with diverse agent behaviors.
-                        </div>
-                        <div class="pub-links">
-                            <a href="https://arxiv.org/abs/2502.01506" target="_blank" class="pub-link-btn">
-                                <i class="fas fa-file-pdf"></i> arXiv
-                            </a>
-                            <a href="https://github.com/freedomintelligence/TwinMarket" target="_blank" class="pub-link-btn">
-                                <i class="fab fa-github"></i> Code
-                                <span class="github-stars" data-repo="freedomintelligence/TwinMarket">
-                                    <i class="fas fa-star"></i><span class="star-count">...</span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- UCFE -->
-                <div class="publication-card accepted" data-tags="cs">
-                    <div class="pub-image">
-                        <img src="img/UCFE.png" alt="UCFE" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
-                    </div>
-                    <div class="pub-content">
-                        <div class="pub-title">
-                            <a href="https://arxiv.org/abs/2410.14059" target="_blank">UCFE: A User-Centric Financial Expertise Benchmark for Large Language Models</a>
-                        </div>
-                        <div class="pub-authors">
-                            Yuzhe Yang*, <strong>Yifei Zhang*</strong>, Yan Hu*, Yilin Guo, Ruoli Gan, et al.
-                        </div>
-                        <div class="pub-venue accepted">
-                            Findings of NAACL 2025
-                        </div>
-                        <div class="pub-award">
-                            <span class="award-badge huggingface">🤗 <a href="https://huggingface.co/papers/date/2024-10-21" target="_blank" style="color: inherit; text-decoration: none;">#1 Paper of the day on Hugging Face</a></span>
-                        </div>
-                        <div class="pub-description">
-                            A comprehensive benchmark evaluating LLMs' <strong>financial expertise from a user-centric perspective</strong>, covering domain knowledge, application capabilities, and trustworthiness across <strong>300+ real-world questions</strong>.
-                        </div>
-                        <div class="pub-links">
-                            <a href="https://arxiv.org/abs/2410.14059" target="_blank" class="pub-link-btn">
-                                <i class="fas fa-file-pdf"></i> arXiv
-                            </a>
-                            <a href="https://github.com/TobyYang7/UCFE-Benchmark" target="_blank" class="pub-link-btn">
-                                <i class="fab fa-github"></i> Code
-                                <span class="github-stars" data-repo="TobyYang7/UCFE-Benchmark">
-                                    <i class="fas fa-star"></i><span class="star-count">...</span>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- True Gold Shines Through -->
-                <div class="publication-card accepted" data-tags="finance">
-                    <div class="pub-image">
-                        <img src="img/true_gold.png" alt="True Gold Shines Through" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
-                    </div>
-                    <div class="pub-content">
-                        <div class="pub-title">
-                            Separating Skill from Luck: LLM-Based Belief Extraction and Investment Ability Measurement of Financial Influencers
-                        </div>
-                        <div class="pub-authors">
-                            Honghai Yu, Yunmiao Zhang, Haining Wang, <strong>Yifei Zhang</strong>
-                        </div>
-                        <div class="pub-venue accepted">
-                            Chengdu Four-University Joint Finance Forum & The 7th Finance PhD Academic Forum, 2025
-                        </div>
-                        <div class="pub-award">
-                            <span class="award-badge">🏅 Outstanding Paper Award (2/20)</span>
-                        </div>
-                        <div class="pub-description">
-                            Analyzes <strong>10M+ posts from 60,000+ financial influencers</strong> on Xueqiu using LLMs to extract stock expectations, combined with <strong>finite mixture models</strong> to separate skill from luck. Findings reveal only <strong>46.63% possess positive investment ability</strong>, while following top 10% yields 22.4 bps daily returns.
-                        </div>
-                        <div class="pub-links">
-                            <a href="#" onclick="toggleAbstract('abstract-true-gold'); return false;" class="pub-link-btn">
-                                <i class="fas fa-file-alt"></i> Abstract
-                            </a>
-                        </div>
-                        <div id="abstract-true-gold" style="display: none; margin-top: 15px; padding: 15px; background: #f0f4ff; border-left: 3px solid #667eea; border-radius: 4px; font-size: 0.9rem; line-height: 1.7;">
-                            <strong>Abstract:</strong> This study leverages <strong>Large Language Models</strong> to extract stock expectation beliefs from millions of posts by 60,000+ financial influencers on Xueqiu, and employs <strong>finite mixture models with EM algorithm</strong> to filter out "luck noise" and scientifically measure actual investment abilities. Results show only <strong>46.63% of influencers possess positive investment ability</strong>, with merely 2.22% achieving strong weekly returns of 1.25%. A long-short portfolio following top 10% influencers yields <strong>22.4 bps daily returns</strong> and <strong>4.94x cumulative returns</strong> from 2016-2025. Retail investors struggle to identify skilled influencers, while institutional investors respond more to high-ability KOLs. The methodology provides regulators and platforms with tools to identify and monitor financial social media content.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Shared Fortunes and Risks -->
-                <div class="publication-card accepted" data-tags="finance">
-                    <div class="pub-image">
-                        <img src="img/xiuqi.png" alt="Shared Fortunes" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
-                    </div>
-                    <div class="pub-content">
-                        <div class="pub-title">
-                            Shared Fortunes and Risks: Stock Price Spillover Effects of Corporate Ties — Evidence from the Chinese Social Media Platform "Xueqiu"
-                        </div>
-                        <div class="pub-authors">
-                            Honghai Yu, Yunmiao Zhang, Zhuo Chen, Chang Zeng, <strong>Yifei Zhang</strong>
-                        </div>
-                        <div class="pub-venue accepted">
-                            The 7th Conference of the Chinese Society of Optimization, Overall Planning, and Economic Mathematics, 2025
-                        </div>
-                        <div class="pub-award">
-                            <span class="award-badge">🎖️ Outstanding Paper Award (10/190)</span>
-                        </div>
-                        <div class="pub-description">
-                            Investigates <strong>stock price spillover effects</strong> through <strong>corporate network ties on social media</strong>, revealing how social connections influence market dynamics and investor behavior.
-                        </div>
-                        <div class="pub-links">
-                            <a href="#" onclick="toggleAbstract('abstract-shared-fortunes'); return false;" class="pub-link-btn">
-                                <i class="fas fa-file-alt"></i> Abstract
-                            </a>
-                        </div>
-                        <div id="abstract-shared-fortunes" style="display: none; margin-top: 15px; padding: 15px; background: #f0f4ff; border-left: 3px solid #667eea; border-radius: 4px; font-size: 0.9rem; line-height: 1.7;">
-                            <strong>Abstract:</strong> This paper investigates the <strong>stock price spillover effects</strong> arising from <strong>corporate network ties on the Chinese social media platform "Xueqiu"</strong>. By constructing a comprehensive dataset of corporate relationships and stock price movements, we analyze how information and sentiment propagate through social networks and impact stock valuations. Our findings reveal significant spillover effects where connected firms experience correlated price movements, particularly during periods of high market volatility. We identify key mechanisms through which social media amplifies these effects, including information cascades, herding behavior, and investor attention. The results provide important insights into the role of social media in modern financial markets and have implications for portfolio management, risk assessment, and regulatory policy.
-                        </div>
-                    </div>
+                <div class="pub-thumb">
+                    <img src="img/gome.jpg" alt="Gome" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
                 </div>
             </div>
 
-            <!-- 2024 -->
-            <div class="year-section">
-                <h2 class="year-header">2024</h2>
-
-                <!-- Open-FinLLMs -->
-                <div class="publication-card" data-tags="cs">
-                    <div class="pub-image">
-                        <img src="img/finllava.png" alt="Open-FinLLMs" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
+            <!-- FT-Dojo -->
+            <div class="publication-card" data-tags="cs">
+                <div class="pub-entry-body">
+                    <div class="pub-title">
+                        <a href="https://arxiv.org/abs/2603.01712" target="_blank">FT-Dojo: Towards Autonomous LLM Fine-Tuning with Language Agents</a>
+                        <span class="pub-scene">(Fine-Tuning Setting of RD-Agent)</span>
                     </div>
-                    <div class="pub-content">
-                        <div class="pub-title">
-                            <a href="https://arxiv.org/abs/2408.11878" target="_blank">Open-FinLLMs: Open Multimodal Large Language Models for Financial Applications</a>
-                        </div>
-                        <div class="pub-authors">
-                            Jimin Huang, Mengxi Xiao, Dong Li, Zihao Jiang, Yuzhe Yang, <strong>Yifei Zhang</strong>, et al.
-                        </div>
-                        <div class="pub-venue">
-                            arXiv preprint 2024
-                        </div>
-                        <div class="pub-award">
-                            <span class="award-badge">🎯 First open-source financial multimodal LLM: FinLLaVA-8B</span>
-                        </div>
-                        <div class="pub-description">
-                            A series of <strong>Financial LLMs</strong> including FinLLaMA (pre-trained on 52B tokens), FinLLaMA-instruct (573K instructions), and <strong>FinLLaVA (first open-source financial multimodal LLM)</strong> trained with 1.43M image-text instructions.
-                        </div>
-                        <div class="pub-links">
-                            <a href="https://arxiv.org/abs/2408.11878" target="_blank" class="pub-link-btn">
-                                <i class="fas fa-file-pdf"></i> arXiv
-                            </a>
-                            <a href="https://huggingface.co/collections/TheFinAI/open-finllms" target="_blank" class="pub-link-btn">
-                                🤗 Model
-                            </a>
-                        </div>
+                    <div class="pub-authors">
+                        Qizheng Li*, <strong>Yifei Zhang*</strong>, Xiao Yang*, Xu Yang*, Zhuo Wang, Weiqing Liu, Jiang Bian
+                    </div>
+                    <div class="pub-meta">
+                        <span class="pub-venue">ICML 2026</span>
+                        <span class="pub-award">🤖 Benchmarking autonomous end-to-end LLM fine-tuning</span>
+                    </div>
+                    <div class="pub-desc">
+                        We introduce <strong>FT-Dojo</strong>, the <strong>fine-tuning setting of RD-Agent</strong>, with <strong>13 tasks across 5 domains</strong> for autonomous LLM fine-tuning, together with <strong>FT-Agent</strong>, a purpose-built system that achieves the best performance on <strong>10 of 13 tasks</strong> and iteratively improves strategies from evaluation history.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2603.01712" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
+                        <a href="https://github.com/microsoft/RD-Agent" target="_blank"><i class="fab fa-github"></i> Project Repo<span class="github-stars" data-repo="microsoft/RD-Agent"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
                     </div>
                 </div>
+                <div class="pub-thumb">
+                    <img src="img/FT-Dojo.png" alt="FT-Dojo" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
+                </div>
+            </div>
+        </div>
 
-                <!-- Do Investors Speak Louder -->
-                <div class="publication-card accepted" data-tags="finance">
-                    <div class="pub-image">
-                        <img src="img/yxyz.jpg" alt="Do Investors Speak Louder" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 3rem; color: #ccc;\'></i>'">
+        <!-- 2025 -->
+        <div class="year-section">
+            <h2 class="year-header">2025</h2>
+
+            <!-- R&D-Agent -->
+            <div class="publication-card" data-tags="cs">
+                <div class="pub-entry-body">
+                    <div class="pub-title">
+                        <a href="https://arxiv.org/abs/2505.14738" target="_blank">R&amp;D-Agent: An LLM-Agent Framework Towards Autonomous Data Science</a>
+                        <span class="pub-scene">(Technical Report)</span>
                     </div>
-                    <div class="pub-content">
-                        <div class="pub-title">
-                            Do investors' actions speak louder than words?
-                        </div>
-                        <div class="pub-authors">
-                            Honghai Yu, Zhuo Chen, Yunmiao Zhang, Haining Wang, <strong>Yifei Zhang</strong>
-                        </div>
-                        <div class="pub-venue accepted">
-                            The 21st Annual Conference on Financial Engineering and Risk Management, 2024
-                        </div>
-                        <div class="pub-award">
-                            <span class="award-badge">📊 Distinguishing noise from information through trading behavior</span>
-                        </div>
-                        <div class="pub-description">
-                            Examines whether posts on Chinese social media propagate noise or information, proposing that both coexist but can be distinguished by <strong>posters' trading behavior</strong>. Observing trading actions helps assess the reliability of expressed views.
-                        </div>
-                        <div class="pub-links">
-                            <a href="#" onclick="toggleAbstract('abstract-investors'); return false;" class="pub-link-btn">
-                                <i class="fas fa-file-alt"></i> Abstract
-                            </a>
-                        </div>
-                        <div id="abstract-investors" style="display: none; margin-top: 15px; padding: 15px; background: #f0f4ff; border-left: 3px solid #667eea; border-radius: 4px; font-size: 0.9rem; line-height: 1.7;">
-                            <strong>Abstract:</strong> A large body of literature has examined whether posts on social media propagate noise or information. In this paper, we propose that both coexist on Chinese social media platforms but can be distinguished by posters' trading behavior. Individuals may post articles on social media that do not reflect their true opinions, often for impression management purposes, resulting in inconsistency between their words and subsequent actions. Additionally, observing a poster's trading behavior prior to posting can help assess the reliability of their expressed views.
-                        </div>
+                    <div class="pub-authors">
+                        Xu Yang, Xiao Yang, Shikai Fang, <strong>Yifei Zhang</strong>, Jian Wang, et al.
                     </div>
+                    <div class="pub-meta">
+                        <span class="pub-venue preprint">arXiv preprint 2025</span>
+                        <span class="pub-award">🏅 Top-performing open-source framework on MLE-Bench</span>
+                    </div>
+                    <div class="pub-desc">
+                        A top-performing open-source framework on MLE-Bench that organizes autonomous data science into two parts: <strong>Research</strong> for proposing ideas and <strong>Development</strong> for converting them into executable workflows and solutions.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2505.14738" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
+                        <a href="https://github.com/microsoft/RD-Agent" target="_blank"><i class="fab fa-github"></i> Project Repo<span class="github-stars" data-repo="microsoft/RD-Agent"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                    </div>
+                </div>
+                <div class="pub-thumb">
+                    <img src="img/RDAgent.png" alt="R&D-Agent" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
+                </div>
+            </div>
+
+            <!-- AI-Trader -->
+            <div class="publication-card" data-tags="cs">
+                <div class="pub-entry-body">
+                    <div class="pub-title">
+                        <a href="https://arxiv.org/abs/2512.10971" target="_blank">AI-Trader: Benchmarking Autonomous Agents in Real-Time Financial Markets</a>
+                    </div>
+                    <div class="pub-authors">
+                        Tianyu Fan, Yuhao Yang, Yangqin Jiang, <strong>Yifei Zhang</strong>, Yuxuan Chen, Chao Huang, et al.
+                    </div>
+                    <div class="pub-meta">
+                        <span class="pub-venue preprint">arXiv preprint 2025</span>
+                        <span class="pub-award">🚀 Fully-automated and data-uncontaminated benchmark for LLM agents in finance</span>
+                    </div>
+                    <div class="pub-desc">
+                        A comprehensive benchmark for evaluating <strong>autonomous trading agents</strong> in real-time financial markets across <strong>NASDAQ 100, SSE 50, and cryptocurrency markets</strong>, enabling fair comparison of AI trading strategies with zero human intervention.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2512.10971" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
+                        <a href="https://github.com/HKUDS/AI-Trader" target="_blank"><i class="fab fa-github"></i> Code<span class="github-stars" data-repo="HKUDS/AI-Trader"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                    </div>
+                </div>
+                <div class="pub-thumb">
+                    <img src="img/AI_Trader.png" alt="AI-Trader" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
+                </div>
+            </div>
+
+            <!-- TwinMarket -->
+            <div class="publication-card" data-tags="cs">
+                <div class="pub-entry-body">
+                    <div class="pub-title">
+                        <a href="https://arxiv.org/abs/2502.01506" target="_blank">TwinMarket: A Scalable Behavioral and Social Simulation for Financial Markets</a>
+                    </div>
+                    <div class="pub-authors">
+                        Yuzhe Yang*, <strong>Yifei Zhang*</strong>, Minghao Wu*, Kaidi Zhang, Yunmiao Zhang, et al.
+                    </div>
+                    <div class="pub-meta">
+                        <span class="pub-venue">NeurIPS 2025</span>
+                        <span class="pub-award">🏆 Best Paper Award, ICLR 2025 Workshop on Advances in Financial AI (1/53)</span>
+                    </div>
+                    <div class="pub-desc">
+                        A <strong>multi-agent simulation platform</strong> for financial markets that integrates <strong>behavioral economics and social network dynamics</strong>, enabling large-scale market experiments with diverse agent behaviors.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2502.01506" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
+                        <a href="https://github.com/freedomintelligence/TwinMarket" target="_blank"><i class="fab fa-github"></i> Code<span class="github-stars" data-repo="freedomintelligence/TwinMarket"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                    </div>
+                </div>
+                <div class="pub-thumb">
+                    <img src="img/TwinMarket.jpg" alt="TwinMarket" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
+                </div>
+            </div>
+
+            <!-- UCFE -->
+            <div class="publication-card" data-tags="cs">
+                <div class="pub-entry-body">
+                    <div class="pub-title">
+                        <a href="https://arxiv.org/abs/2410.14059" target="_blank">UCFE: A User-Centric Financial Expertise Benchmark for Large Language Models</a>
+                    </div>
+                    <div class="pub-authors">
+                        Yuzhe Yang*, <strong>Yifei Zhang*</strong>, Yan Hu*, Yilin Guo, Ruoli Gan, et al.
+                    </div>
+                    <div class="pub-meta">
+                        <span class="pub-venue">Findings of NAACL 2025</span>
+                        <span class="pub-award">🤗 <a href="https://huggingface.co/papers/date/2024-10-21" target="_blank">#1 Paper of the day on Hugging Face</a></span>
+                    </div>
+                    <div class="pub-desc">
+                        A comprehensive benchmark evaluating LLMs' <strong>financial expertise from a user-centric perspective</strong>, covering domain knowledge, application capabilities, and trustworthiness across <strong>300+ real-world questions</strong>.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2410.14059" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
+                        <a href="https://github.com/TobyYang7/UCFE-Benchmark" target="_blank"><i class="fab fa-github"></i> Code<span class="github-stars" data-repo="TobyYang7/UCFE-Benchmark"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                    </div>
+                </div>
+                <div class="pub-thumb">
+                    <img src="img/UCFE.png" alt="UCFE" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
+                </div>
+            </div>
+
+            <!-- Separating Skill from Luck -->
+            <div class="publication-card" data-tags="finance">
+                <div class="pub-entry-body">
+                    <div class="pub-title">
+                        Separating Skill from Luck: LLM-Based Belief Extraction and Investment Ability Measurement of Financial Influencers
+                    </div>
+                    <div class="pub-authors">
+                        Honghai Yu, Yunmiao Zhang, Haining Wang, <strong>Yifei Zhang</strong>
+                    </div>
+                    <div class="pub-meta">
+                        <span class="pub-venue">Chengdu Four-University Joint Finance Forum &amp; The 7th Finance PhD Academic Forum, 2025</span>
+                        <span class="pub-award">🏅 Outstanding Paper Award (2/20)</span>
+                    </div>
+                    <div class="pub-desc">
+                        Analyzes <strong>10M+ posts from 60,000+ financial influencers</strong> on Xueqiu using LLMs to extract stock expectations, combined with <strong>finite mixture models</strong> to separate skill from luck. Findings reveal only <strong>46.63% possess positive investment ability</strong>, while following top 10% yields 22.4 bps daily returns.
+                    </div>
+                    <div class="pub-links">
+                        <a href="#" onclick="toggleAbstract('abstract-true-gold'); return false;"><i class="fas fa-file-alt"></i> Abstract</a>
+                    </div>
+                    <div id="abstract-true-gold" class="abstract-box">
+                        <strong>Abstract:</strong> This study leverages <strong>Large Language Models</strong> to extract stock expectation beliefs from millions of posts by 60,000+ financial influencers on Xueqiu, and employs <strong>finite mixture models with EM algorithm</strong> to filter out "luck noise" and scientifically measure actual investment abilities. Results show only <strong>46.63% of influencers possess positive investment ability</strong>, with merely 2.22% achieving strong weekly returns of 1.25%. A long-short portfolio following top 10% influencers yields <strong>22.4 bps daily returns</strong> and <strong>4.94x cumulative returns</strong> from 2016-2025. Retail investors struggle to identify skilled influencers, while institutional investors respond more to high-ability KOLs. The methodology provides regulators and platforms with tools to identify and monitor financial social media content.
+                    </div>
+                </div>
+                <div class="pub-thumb">
+                    <img src="img/true_gold.png" alt="Separating Skill from Luck" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
+                </div>
+            </div>
+
+            <!-- Shared Fortunes and Risks -->
+            <div class="publication-card" data-tags="finance">
+                <div class="pub-entry-body">
+                    <div class="pub-title">
+                        Shared Fortunes and Risks: Stock Price Spillover Effects of Corporate Ties — Evidence from the Chinese Social Media Platform "Xueqiu"
+                    </div>
+                    <div class="pub-authors">
+                        Honghai Yu, Yunmiao Zhang, Zhuo Chen, Chang Zeng, <strong>Yifei Zhang</strong>
+                    </div>
+                    <div class="pub-meta">
+                        <span class="pub-venue">The 7th Conference of the Chinese Society of Optimization, Overall Planning, and Economic Mathematics, 2025</span>
+                        <span class="pub-award">🎖️ Outstanding Paper Award (10/190)</span>
+                    </div>
+                    <div class="pub-desc">
+                        Investigates <strong>stock price spillover effects</strong> through <strong>corporate network ties on social media</strong>, revealing how social connections influence market dynamics and investor behavior.
+                    </div>
+                    <div class="pub-links">
+                        <a href="#" onclick="toggleAbstract('abstract-shared-fortunes'); return false;"><i class="fas fa-file-alt"></i> Abstract</a>
+                    </div>
+                    <div id="abstract-shared-fortunes" class="abstract-box">
+                        <strong>Abstract:</strong> This paper investigates the <strong>stock price spillover effects</strong> arising from <strong>corporate network ties on the Chinese social media platform "Xueqiu"</strong>. By constructing a comprehensive dataset of corporate relationships and stock price movements, we analyze how information and sentiment propagate through social networks and impact stock valuations. Our findings reveal significant spillover effects where connected firms experience correlated price movements, particularly during periods of high market volatility. We identify key mechanisms through which social media amplifies these effects, including information cascades, herding behavior, and investor attention. The results provide important insights into the role of social media in modern financial markets and have implications for portfolio management, risk assessment, and regulatory policy.
+                    </div>
+                </div>
+                <div class="pub-thumb">
+                    <img src="img/xiuqi.png" alt="Shared Fortunes" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
+                </div>
+            </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="year-section">
+            <h2 class="year-header">2024</h2>
+
+            <!-- Open-FinLLMs -->
+            <div class="publication-card" data-tags="cs">
+                <div class="pub-entry-body">
+                    <div class="pub-title">
+                        <a href="https://arxiv.org/abs/2408.11878" target="_blank">Open-FinLLMs: Open Multimodal Large Language Models for Financial Applications</a>
+                    </div>
+                    <div class="pub-authors">
+                        Jimin Huang, Mengxi Xiao, Dong Li, Zihao Jiang, Yuzhe Yang, <strong>Yifei Zhang</strong>, et al.
+                    </div>
+                    <div class="pub-meta">
+                        <span class="pub-venue preprint">arXiv preprint 2024</span>
+                        <span class="pub-award">🎯 First open-source financial multimodal LLM: FinLLaVA-8B</span>
+                    </div>
+                    <div class="pub-desc">
+                        A series of <strong>Financial LLMs</strong> including FinLLaMA (pre-trained on 52B tokens), FinLLaMA-instruct (573K instructions), and <strong>FinLLaVA (first open-source financial multimodal LLM)</strong> trained with 1.43M image-text instructions.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2408.11878" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
+                        <a href="https://huggingface.co/collections/TheFinAI/open-finllms" target="_blank">🤗 Model</a>
+                    </div>
+                </div>
+                <div class="pub-thumb">
+                    <img src="img/finllava.png" alt="Open-FinLLMs" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
+                </div>
+            </div>
+
+            <!-- Do Investors Speak Louder -->
+            <div class="publication-card" data-tags="finance">
+                <div class="pub-entry-body">
+                    <div class="pub-title">
+                        Do investors' actions speak louder than words?
+                    </div>
+                    <div class="pub-authors">
+                        Honghai Yu, Zhuo Chen, Yunmiao Zhang, Haining Wang, <strong>Yifei Zhang</strong>
+                    </div>
+                    <div class="pub-meta">
+                        <span class="pub-venue">The 21st Annual Conference on Financial Engineering and Risk Management, 2024</span>
+                        <span class="pub-award">📊 Distinguishing noise from information through trading behavior</span>
+                    </div>
+                    <div class="pub-desc">
+                        Examines whether posts on Chinese social media propagate noise or information, proposing that both coexist but can be distinguished by <strong>posters' trading behavior</strong>. Observing trading actions helps assess the reliability of expressed views.
+                    </div>
+                    <div class="pub-links">
+                        <a href="#" onclick="toggleAbstract('abstract-investors'); return false;"><i class="fas fa-file-alt"></i> Abstract</a>
+                    </div>
+                    <div id="abstract-investors" class="abstract-box">
+                        <strong>Abstract:</strong> A large body of literature has examined whether posts on social media propagate noise or information. In this paper, we propose that both coexist on Chinese social media platforms but can be distinguished by posters' trading behavior. Individuals may post articles on social media that do not reflect their true opinions, often for impression management purposes, resulting in inconsistency between their words and subsequent actions. Additionally, observing a poster's trading behavior prior to posting can help assess the reliability of their expressed views.
+                    </div>
+                </div>
+                <div class="pub-thumb">
+                    <img src="img/yxyz.jpg" alt="Do Investors Speak Louder" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
                 </div>
             </div>
         </div>
@@ -818,116 +379,17 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024-2025 Yifei Zhang. All rights reserved.</p>
-            <p>Email: <a href="mailto:yf_zhang@smail.nju.edu.cn" style="color: #667eea; text-decoration: none;">yf_zhang@smail.nju.edu.cn</a></p>
+            <p>&copy; 2024–<span id="year">2026</span> Yifei Zhang</p>
+            <p><a href="mailto:yf_zhang@smail.nju.edu.cn">yf_zhang@smail.nju.edu.cn</a></p>
+            <p>Last updated: August 2, 2026</p>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top" title="Back to top">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top" title="Back to top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>
-
-    <script>
-        // Toggle abstract display
-        function toggleAbstract(id) {
-            const abstract = document.getElementById(id);
-            if (abstract.style.display === 'none' || abstract.style.display === '') {
-                abstract.style.display = 'block';
-            } else {
-                abstract.style.display = 'none';
-            }
-        }
-
-        // Fetch GitHub stars
-        async function fetchGitHubStars(repo) {
-            try {
-                const response = await fetch(`https://api.github.com/repos/${repo}`);
-                if (response.ok) {
-                    const data = await response.json();
-                    return data.stargazers_count;
-                }
-            } catch (error) {
-                console.error(`Error fetching stars for ${repo}:`, error);
-            }
-            return null;
-        }
-
-        // Format star count
-        function formatStarCount(count) {
-            if (count >= 1000) {
-                return (count / 1000).toFixed(1) + 'k';
-            }
-            return count.toString();
-        }
-
-        // Load GitHub stars for all repos
-        async function loadGitHubStars() {
-            const starElements = document.querySelectorAll('.github-stars');
-            for (const element of starElements) {
-                const repo = element.getAttribute('data-repo');
-                if (repo) {
-                    const stars = await fetchGitHubStars(repo);
-                    if (stars !== null) {
-                        const countSpan = element.querySelector('.star-count');
-                        countSpan.textContent = formatStarCount(stars);
-                    }
-                }
-            }
-        }
-
-        // Load stars when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            loadGitHubStars();
-        });
-
-        // Filter publications by tag
-        const filterTags = document.querySelectorAll('.filter-tag');
-        const publications = document.querySelectorAll('.publication-card');
-
-        filterTags.forEach(tag => {
-            tag.addEventListener('click', function() {
-                // Update active state
-                filterTags.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-
-                const filter = this.getAttribute('data-filter');
-
-                // Filter publications
-                publications.forEach(pub => {
-                    const tags = pub.getAttribute('data-tags');
-                    
-                    if (filter === 'all') {
-                        pub.classList.remove('hidden');
-                    } else if (tags === filter) {
-                        // Exact match for precise filtering
-                        pub.classList.remove('hidden');
-                    } else {
-                        pub.classList.add('hidden');
-                    }
-                });
-            });
-        });
-
-        // Back to Top Button
-        const backToTopButton = document.getElementById('backToTop');
-
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
-        });
-
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
 </body>
 </html>
