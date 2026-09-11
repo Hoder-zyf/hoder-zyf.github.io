@@ -5,70 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Yifei Zhang (张逸飞) — Master's student at Nanjing University. Research on LLM agents, autonomous agents, and financial applications of LLMs.">
     <title>Yifei Zhang (张逸飞)</title>
+    <link rel="canonical" href="https://hoder-zyf.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yifei Zhang (张逸飞)">
+    <meta property="og:description" content="Yifei Zhang (张逸飞) — Master's student at Nanjing University. Research on LLM agents, autonomous agents, and financial applications of LLMs.">
+    <meta property="og:url" content="https://hoder-zyf.github.io/">
+    <meta property="og:image" content="https://hoder-zyf.github.io/img/pic_image.png">
+    <meta property="og:image:alt" content="Yifei Zhang's profile illustration">
+    <meta name="twitter:card" content="summary">
     <link rel="icon" type="image/png" href="img/nju.png">
     <script>
-        document.documentElement.classList.add('js');
         (function () {
             var t = null;
             try { t = localStorage.getItem('theme'); } catch (e) {}
             if (t !== 'light' && t !== 'dark') {
-                t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             }
             document.documentElement.setAttribute('data-theme', t);
         })();
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=20260802">
-    <script src="main.js?v=20260802" defer></script>
+    <link rel="stylesheet" href="fonts/fonts.css?v=20260911">
+    <link rel="stylesheet" href="styles.css?v=20260911">
+    <script src="main.js?v=20260911" defer></script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <!-- Top bar -->
     <header class="topbar">
         <div class="topbar-inner">
             <a href="index.html" class="site-name">Yifei Zhang</a>
-            <nav>
+            <nav aria-label="Main navigation">
                 <ul>
                     <li><a href="#news">News</a></li>
                     <li><a href="publications.html">Publications</a></li>
                     <li><a href="#experiences">Experiences</a></li>
-                    <li><a href="pdf/en-cv-zyf.pdf" target="_blank">CV</a></li>
-                    <li>
-                        <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
-                            <i class="fas fa-sun icon-sun"></i>
-                            <i class="fas fa-moon icon-moon"></i>
-                        </button>
-                    </li>
+                    <li><a href="pdf/en-cv-zyf.pdf" target="_blank" rel="noopener">CV</a></li>
                 </ul>
             </nav>
+            <button id="theme-toggle" class="theme-toggle" type="button" title="Switch to dark mode" aria-label="Dark mode" aria-pressed="false" hidden>
+                <svg class="icon icon-sun" aria-hidden="true" focusable="false"><use href="img/icons.svg#sun"></use></svg>
+                <svg class="icon icon-moon" aria-hidden="true" focusable="false"><use href="img/icons.svg#moon"></use></svg>
+            </button>
         </div>
     </header>
 
-    <main class="container">
+    <main id="main-content" class="container" tabindex="-1">
         <!-- Hero -->
         <div class="hero">
-            <img src="img/pic_image.png" alt="Yifei Zhang" class="hero-photo">
+            <img src="img/optimized/pic_image-132.webp" srcset="img/optimized/pic_image-132.webp 132w, img/optimized/pic_image-264.webp 264w" sizes="132px" width="132" height="132" alt="Yifei Zhang" class="hero-photo" fetchpriority="high" decoding="async">
             <div class="hero-text">
                 <h1>Yifei Zhang (张逸飞)</h1>
                 <p class="hero-sub">Per aspera ad astra</p>
                 <p class="hero-email">
-                    <i class="fas fa-envelope"></i>
+                    <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#envelope"></use></svg>
                     <a href="mailto:yf_zhang@smail.nju.edu.cn">yf_zhang@smail.nju.edu.cn</a>
                 </p>
                 <div class="social-links">
-                    <a href="https://scholar.google.com/citations?hl=en&user=b4rGdr4AAAAJ" target="_blank">
-                        <i class="fas fa-graduation-cap"></i>Google Scholar
+                    <a href="https://scholar.google.com/citations?hl=en&user=b4rGdr4AAAAJ" target="_blank" rel="noopener">
+                        <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#graduation-cap"></use></svg>Google Scholar
                     </a>
-                    <a href="https://github.com/Hoder-zyf" target="_blank">
-                        <i class="fab fa-github"></i>GitHub
+                    <a href="https://github.com/Hoder-zyf" target="_blank" rel="noopener">
+                        <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#github"></use></svg>GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/yifei-zhang-8087521b3/" target="_blank">
-                        <i class="fab fa-linkedin"></i>LinkedIn
+                    <a href="https://www.linkedin.com/in/yifei-zhang-8087521b3/" target="_blank" rel="noopener">
+                        <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#linkedin"></use></svg>LinkedIn
                     </a>
-                    <a href="#" id="wechat-link">
-                        <i class="fab fa-weixin"></i>WeChat
+                    <a href="img/wechat.png" id="wechat-link">
+                        <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#weixin"></use></svg>WeChat
                     </a>
                 </div>
             </div>
@@ -77,9 +80,9 @@
         <!-- About -->
         <section id="about">
             <div class="about-text">
-                <p>Hi, I am <strong>Yifei Zhang (张逸飞)</strong>, a master's student in Financial Engineering and Fintech at <a href="https://www.nju.edu.cn/en" target="_blank">Nanjing University</a>'s <a href="https://sme.nju.edu.cn/" target="_blank">School of Management & Engineering</a>, advised by <a href="https://sme.nju.edu.cn/yhh/list.htm" target="_blank">Prof. Honghai Yu</a>. I hold a bachelor's degree in <strong>Computer Science and Technology</strong> from the <a href="https://cs.nju.edu.cn/mainm.htm" target="_blank">Department of Computer Science and Technology</a> at Nanjing University, where I specialized in Computer & Financial Engineering Experimental Class (<strong>a Top Talent Program</strong>).</p>
+                <p>Hi, I am <strong>Yifei Zhang (张逸飞)</strong>, a master's student in Financial Engineering and Fintech at <a href="https://www.nju.edu.cn/en" target="_blank" rel="noopener">Nanjing University</a>'s <a href="https://sme.nju.edu.cn/" target="_blank" rel="noopener">School of Management & Engineering</a>, advised by <a href="https://sme.nju.edu.cn/yhh/list.htm" target="_blank" rel="noopener">Prof. Honghai Yu</a>. I hold a bachelor's degree in <strong>Computer Science and Technology</strong> from the <a href="https://cs.nju.edu.cn/mainm.htm" target="_blank" rel="noopener">Department of Computer Science and Technology</a> at Nanjing University, where I specialized in Computer & Financial Engineering Experimental Class (<strong>a Top Talent Program</strong>).</p>
 
-                <p>I am currently a research intern at Century Frontier, working on <strong>AutoResearch in the quantitative area</strong>. Before that, I was a research intern at XYZ AI LAB from April 2026 to July 2026, advised by <a href="https://www.microsoft.com/en-us/research/people/xiaoyang/" target="_blank">Xiao Yang</a> and <a href="https://sites.google.com/view/jiangbian" target="_blank">Jiang Bian</a>, focusing on <strong>AI4AI research on LLM Post-training</strong>. Before that, I was a research intern at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank">Microsoft Research Asia (MSRA)</a> from May 2025 to January 2026, advised by <a href="https://www.microsoft.com/en-us/research/people/xiaoyang/" target="_blank">Xiao Yang</a>, focusing on <strong>Autonomous Agent</strong> research. Previously, I had the privilege of collaborating with <a href="https://sds.cuhk.edu.cn/teacher/571" target="_blank">Prof. Benyou Wang</a> and <a href="http://jszy.whu.edu.cn/xieqianqian/zh_CN/index/1646702/list/" target="_blank">Prof. Qianqian Xie</a> on exploring <strong>Large Language Models in Finance</strong>.</p>
+                <p>I am currently an Agentic Quant Research Intern at Century Frontier, working on <strong>AutoResearch in the quantitative area</strong>. Before that, I was a research intern at XYZ AI LAB from April 2026 to July 2026, advised by <a href="https://www.microsoft.com/en-us/research/people/xiaoyang/" target="_blank" rel="noopener">Xiao Yang</a> and <a href="https://sites.google.com/view/jiangbian" target="_blank" rel="noopener">Jiang Bian</a>, focusing on <strong>AI4AI research on LLM Post-training</strong>. Before that, I was a research intern at <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" target="_blank" rel="noopener">Microsoft Research Asia (MSRA)</a> from May 2025 to January 2026, advised by <a href="https://www.microsoft.com/en-us/research/people/xiaoyang/" target="_blank" rel="noopener">Xiao Yang</a>, focusing on <strong>Autonomous Agent</strong> research. Previously, I had the privilege of collaborating with <a href="https://sds.cuhk.edu.cn/teacher/571" target="_blank" rel="noopener">Prof. Benyou Wang</a> and <a href="http://jszy.whu.edu.cn/xieqianqian/zh_CN/index/1646702/list/" target="_blank" rel="noopener">Prof. Qianqian Xie</a> on exploring <strong>Large Language Models in Finance</strong>.</p>
 
                 <p>I have published at top-tier conferences including <em>NeurIPS</em>, <em>ICML</em>, and <em>ACL</em>. Notably, one of my papers received the <strong>Best Paper Award</strong> at the <em>ICLR 2025 Workshop on Advances in Financial AI</em>, where I presented it as an oral presentation in Singapore. My research interests are <strong>AI4AI</strong> and <strong>Autonomous Agents</strong>.</p>
 
@@ -89,9 +92,9 @@
 
                 <div class="resume-links">
                     <strong>📄 More about me:</strong>
-                    <a href="pdf/en-cv-zyf.pdf" target="_blank">English Resume</a>
+                    <a href="pdf/en-cv-zyf.pdf" target="_blank" rel="noopener">English Resume</a>
                     <span aria-hidden="true">·</span>
-                    <a href="pdf/cn-cv-zyf.pdf" target="_blank">中文简历</a>
+                    <a href="pdf/cn-cv-zyf.pdf" target="_blank" rel="noopener">中文简历</a>
                 </div>
             </div>
         </section>
@@ -99,13 +102,13 @@
         <!-- News -->
         <section id="news" class="reveal">
             <div class="sec-head">
-                <span class="sec-index">01</span>
+                <span class="sec-index" aria-hidden="true">01</span>
                 <h2>News</h2>
             </div>
             <ul class="news-list" id="news-list">
                 <li class="news-item">
                     <span class="news-date">07/2026</span>
-                    🚀 Open-sourced <a href="https://huggingface.co/XYZAILab/XYZ-Aquila-pro" target="_blank">XYZ-Aquila</a>, a family of Deep Search agents, together with the agent runtime harness <a href="https://github.com/XYZ-AI-Lab/AxisAgentic" target="_blank">AxisAgentic</a>.
+                    🚀 Open-sourced <a href="https://huggingface.co/XYZAILab/XYZ-Aquila-pro" target="_blank" rel="noopener">XYZ-Aquila</a>, a family of Deep Search agents, together with the agent runtime harness <a href="https://github.com/XYZ-AI-Lab/AxisAgentic" target="_blank" rel="noopener">AxisAgentic</a>.
                 </li>
                 <li class="news-item">
                     <span class="news-date">05/2026</span>
@@ -113,11 +116,11 @@
                 </li>
                 <li class="news-item">
                     <span class="news-date">05/2026</span>
-                    📄 One paper accepted by <em>ICML 2026</em>. You can find the paper <a href="https://arxiv.org/abs/2603.01712" target="_blank">here</a>.
+                    📄 One paper accepted by <em>ICML 2026</em>. You can find the paper <a href="https://arxiv.org/abs/2603.01712" target="_blank" rel="noopener">here</a>.
                 </li>
                 <li class="news-item">
                     <span class="news-date">04/2026</span>
-                    📄 One paper accepted by <em>ACL Findings 2026</em>. You can find the paper <a href="https://arxiv.org/abs/2603.01692" target="_blank">here</a>.
+                    📄 One paper accepted by <em>ACL Findings 2026</em>. You can find the paper <a href="https://arxiv.org/abs/2603.01692" target="_blank" rel="noopener">here</a>.
                 </li>
                 <li class="news-item">
                     <span class="news-date">10/2025</span>
@@ -125,7 +128,7 @@
                 </li>
                 <li class="news-item">
                     <span class="news-date">09/2025</span>
-                    📄 One paper accepted by <em>NeurIPS 2025</em>. You can find the paper <a href="https://arxiv.org/abs/2502.01506" target="_blank">here</a>.
+                    📄 One paper accepted by <em>NeurIPS 2025</em>. You can find the paper <a href="https://arxiv.org/abs/2502.01506" target="_blank" rel="noopener">here</a>.
                 </li>
                 <li class="news-item">
                     <span class="news-date">08/2025</span>
@@ -137,19 +140,19 @@
                 </li>
                 <li class="news-item">
                     <span class="news-date">04/2025</span>
-                    🏅 Give a talk at Financial AI @ ICLR 2025 and won the <strong>Best Paper Award</strong> (1 out of 53). You can find the paper <a href="https://arxiv.org/abs/2502.01506" target="_blank">here</a>.
+                    🏅 Give a talk at Financial AI @ ICLR 2025 and won the <strong>Best Paper Award</strong> (1 out of 53). You can find the paper <a href="https://arxiv.org/abs/2502.01506" target="_blank" rel="noopener">here</a>.
                 </li>
                 <li class="news-item">
                     <span class="news-date">01/2025</span>
-                    📝 One paper accepted by <em>NAACL Findings 2025</em>. You can find the paper <a href="https://arxiv.org/pdf/2410.14059" target="_blank">here</a>.
+                    📝 One paper accepted by <em>NAACL Findings 2025</em>. You can find the paper <a href="https://arxiv.org/pdf/2410.14059" target="_blank" rel="noopener">here</a>.
                 </li>
                 <li class="news-item">
                     <span class="news-date">09/2024</span>
-                    🎓 Begin new journey as a master student at <a href="https://www.nju.edu.cn/en" target="_blank">Nanjing University</a>.
+                    🎓 Begin new journey as a master student at <a href="https://www.nju.edu.cn/en" target="_blank" rel="noopener">Nanjing University</a>.
                 </li>
                 <li class="news-item">
                     <span class="news-date">07/2024</span>
-                    🔬 Start a RA position at <a href="https://www.cuhk.edu.cn/en" target="_blank">CUHK(SZ)</a> with <a href="https://wabyking.github.io/old.html" target="_blank">Prof. Benyou Wang</a>.
+                    🔬 Start a RA position at <a href="https://www.cuhk.edu.cn/en" target="_blank" rel="noopener">CUHK(SZ)</a> with <a href="https://wabyking.github.io/old.html" target="_blank" rel="noopener">Prof. Benyou Wang</a>.
                 </li>
                 <li class="news-item">
                     <span class="news-date">06/2024</span>
@@ -157,15 +160,15 @@
                 </li>
             </ul>
 
-            <div class="pagination">
-                <button class="pagination-btn" id="prev-btn">
-                    <i class="fas fa-chevron-left"></i> Prev
+            <div class="pagination" hidden>
+                <button class="pagination-btn" type="button" aria-controls="news-list" id="prev-btn">
+                    <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#chevron-left"></use></svg> Prev
                 </button>
-                <span class="pagination-info">
+                <span class="pagination-info" role="status" aria-live="polite" aria-atomic="true"><span class="sr-only">News page </span>
                     <span id="current-page">1</span> / <span id="total-pages">3</span>
                 </span>
-                <button class="pagination-btn" id="next-btn">
-                    Next <i class="fas fa-chevron-right"></i>
+                <button class="pagination-btn" type="button" aria-controls="news-list" id="next-btn">
+                    Next <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#chevron-right"></use></svg>
                 </button>
             </div>
         </section>
@@ -173,20 +176,20 @@
         <!-- Selected Publications -->
         <section id="publications" class="reveal">
             <div class="sec-head">
-                <span class="sec-index">02</span>
+                <span class="sec-index" aria-hidden="true">02</span>
                 <h2>Selected Publications</h2>
                 <span class="sec-note">
                     * equal contribution
-                    <a href="https://scholar.google.com/citations?user=b4rGdr4AAAAJ" target="_blank">Google Scholar</a>
+                    <a href="https://scholar.google.com/citations?user=b4rGdr4AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
                     <a href="publications.html">Full list →</a>
                 </span>
             </div>
 
             <!-- AI4AI at Scale -->
             <article class="pub-entry pub-box">
-                <div class="pub-title">
-                    <a href="http://xyz-lab.ai/blogs/ai4ai-at-scale/assets/bounded-exploration-ai4ai-system-optimization.pdf" target="_blank">AI4AI at Scale: A Full-Pipeline System for Enhancing LLM Agentic Capabilities</a>
-                </div>
+                <h3 class="pub-title">
+                    <a href="https://xyz-lab.ai/blogs/ai4ai-at-scale/assets/bounded-exploration-ai4ai-system-optimization.pdf" target="_blank" rel="noopener">AI4AI at Scale: A Full-Pipeline System for Enhancing LLM Agentic Capabilities</a>
+                </h3>
                 <div class="pub-authors">
                     XYZ Agentic Team
                 </div>
@@ -194,32 +197,32 @@
                     <span class="pub-venue preprint">XYZ AI LAB Technical Report, 2026</span>
                 </div>
                 <div class="pub-tldr">
-                    <strong>TL;DR</strong> A <strong>bounded-exploration, verification-gated framework</strong> for improving complete agentic systems, instantiated in <strong>XYZ-Aquila</strong>, a family of open-weight Deep Search agents. XYZ-Aquila-pro records the <strong>highest reported score among all listed systems on BrowseComp-ZH, LiveBrowseComp, and WideSearch</strong>.
+                    <strong>TL;DR</strong> A <strong>bounded-exploration, verification-gated framework</strong> for improving complete agentic systems, instantiated in XYZ-Aquila, a family of open-weight Deep Search agents. XYZ-Aquila-pro records the highest reported score among all listed systems on BrowseComp-ZH, LiveBrowseComp, and WideSearch.
                 </div>
                 <div class="pub-links">
-                    <a href="http://xyz-lab.ai/blogs/ai4ai-at-scale/assets/bounded-exploration-ai4ai-system-optimization.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
-                    <a href="https://huggingface.co/XYZAILab/XYZ-Aquila-pro" target="_blank">🤗 Model</a>
-                    <a href="https://github.com/XYZ-AI-Lab/AxisAgentic" target="_blank"><i class="fab fa-github"></i> Harness<span class="github-stars" data-repo="XYZ-AI-Lab/AxisAgentic"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                    <a href="https://xyz-lab.ai/blogs/ai4ai-at-scale/assets/bounded-exploration-ai4ai-system-optimization.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> PDF</a>
+                    <a href="https://huggingface.co/XYZAILab/XYZ-Aquila-pro" target="_blank" rel="noopener">🤗 Model</a>
+                    <a href="https://github.com/XYZ-AI-Lab/AxisAgentic" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#github"></use></svg> Harness<span class="github-stars" hidden data-repo="XYZ-AI-Lab/AxisAgentic"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#star"></use></svg><span class="star-count"></span><span class="sr-only"> GitHub stars</span></span></a>
                 </div>
             </article>
 
             <!-- RD-Agent project group -->
             <div class="pub-group">
                 <div class="pub-group-head">
-                    <div class="pub-group-title">RD-Agent Project</div>
+                    <h3 class="pub-group-title">RD-Agent Project</h3>
                     <div class="pub-group-summary">
                         A unified research line on <strong>autonomous ML engineering agents</strong>. The technical report defines the RD-Agent framework, while the two follow-up papers study how the same project scales to <strong>Machine Learning Engineering (MLE) optimization</strong> and <strong>autonomous LLM fine-tuning</strong>.
                     </div>
                     <div class="pub-group-actions">
-                        <a href="https://github.com/microsoft/RD-Agent" target="_blank"><i class="fab fa-github"></i> RD-Agent Project<span class="github-stars" data-repo="microsoft/RD-Agent"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                        <a href="https://github.com/microsoft/RD-Agent" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#github"></use></svg> RD-Agent Project<span class="github-stars" hidden data-repo="microsoft/RD-Agent"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#star"></use></svg><span class="star-count"></span><span class="sr-only"> GitHub stars</span></span></a>
                     </div>
                 </div>
 
                 <article class="pub-entry">
-                    <div class="pub-title">
-                        <a href="https://arxiv.org/abs/2505.14738" target="_blank">R&amp;D-Agent: An LLM-Agent Framework Towards Autonomous Data Science</a>
+                    <h4 class="pub-title">
+                        <a href="https://arxiv.org/abs/2505.14738" target="_blank" rel="noopener">R&amp;D-Agent: An LLM-Agent Framework Towards Autonomous Data Science</a>
                         <span class="pub-scene">(Technical Report)</span>
-                    </div>
+                    </h4>
                     <div class="pub-authors">
                         Xu Yang, Xiao Yang, Shikai Fang, <strong>Yifei Zhang</strong>, Jian Wang, <em>et al.</em>
                     </div>
@@ -227,18 +230,18 @@
                         <span class="pub-venue preprint">arXiv preprint 2025</span>
                     </div>
                     <div class="pub-desc">
-                        A <strong>top-performing open-source framework on MLE-Bench</strong> that structures autonomous data science into two parts: <strong>Research</strong> for proposing ideas and <strong>Development</strong> for turning them into executable solutions.
+                        A <strong>top-performing open-source framework on MLE-Bench</strong> that structures autonomous data science into two parts: <strong>Research</strong> for proposing ideas and Development for turning them into executable solutions.
                     </div>
                     <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2505.14738" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
+                        <a href="https://arxiv.org/abs/2505.14738" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> arXiv</a>
                     </div>
                 </article>
 
                 <article class="pub-entry">
-                    <div class="pub-title">
-                        <a href="https://arxiv.org/abs/2603.01692" target="_blank">Reasoning as Gradient: Scaling MLE Agents Beyond Tree Search</a>
+                    <h4 class="pub-title">
+                        <a href="https://arxiv.org/abs/2603.01692" target="_blank" rel="noopener">Reasoning as Gradient: Scaling MLE Agents Beyond Tree Search</a>
                         <span class="pub-scene">(MLE Setting of RD-Agent)</span>
-                    </div>
+                    </h4>
                     <div class="pub-authors">
                         <strong>Yifei Zhang*</strong>, Xu Yang*, Xiao Yang*, Bowen Xian, Qizheng Li, <em>et al.</em>
                     </div>
@@ -246,19 +249,19 @@
                         <span class="pub-venue">ACL Findings 2026</span>
                     </div>
                     <div class="pub-desc">
-                        The <strong>MLE setting of RD-Agent</strong>, where Gome sets the strongest open-source MLE result on MLE-Bench <strong>under a closed-world protocol</strong>. Its main finding is that as model reasoning capabilities improve, <strong>gradient-based optimization increasingly outperforms gradient-free tree search</strong>.
+                        The <strong>MLE setting of RD-Agent</strong>, where Gome sets the strongest open-source MLE result on MLE-Bench <strong>under a closed-world protocol</strong>. Its main finding is that as model reasoning capabilities improve, gradient-based optimization increasingly outperforms gradient-free tree search.
                     </div>
                     <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2603.01692" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
-                        <a href="https://huggingface.co/datasets/amstrongzyf/Gome-GPT5-Traces" target="_blank">🤗 Dataset</a>
+                        <a href="https://arxiv.org/abs/2603.01692" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> arXiv</a>
+                        <a href="https://huggingface.co/datasets/amstrongzyf/Gome-GPT5-Traces" target="_blank" rel="noopener">🤗 Dataset</a>
                     </div>
                 </article>
 
                 <article class="pub-entry">
-                    <div class="pub-title">
-                        <a href="https://arxiv.org/abs/2603.01712" target="_blank">FT-Dojo: Towards Autonomous LLM Fine-Tuning with Language Agents</a>
+                    <h4 class="pub-title">
+                        <a href="https://arxiv.org/abs/2603.01712" target="_blank" rel="noopener">FT-Dojo: Towards Autonomous LLM Fine-Tuning with Language Agents</a>
                         <span class="pub-scene">(Fine-Tuning Setting of RD-Agent)</span>
-                    </div>
+                    </h4>
                     <div class="pub-authors">
                         Qizheng Li*, <strong>Yifei Zhang*</strong>, Xiao Yang*, Xu Yang*, Zhuo Wang, <em>et al.</em>
                     </div>
@@ -266,19 +269,19 @@
                         <span class="pub-venue">ICML 2026</span>
                     </div>
                     <div class="pub-desc">
-                        The <strong>fine-tuning setting of RD-Agent</strong>, introducing an interactive benchmark with <strong>13 tasks across 5 domains</strong> and FT-Agent, which achieves the best results on <strong>10 of 13 tasks</strong>.
+                        The <strong>fine-tuning setting of RD-Agent</strong>, introducing an interactive benchmark with <strong>13 tasks across 5 domains</strong> and FT-Agent, which achieves the best results on 10 of 13 tasks.
                     </div>
                     <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2603.01712" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
+                        <a href="https://arxiv.org/abs/2603.01712" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> arXiv</a>
                     </div>
                 </article>
             </div>
 
             <!-- TwinMarket -->
             <article class="pub-entry pub-box">
-                <div class="pub-title">
-                    <a href="https://arxiv.org/abs/2502.01506" target="_blank">TwinMarket: A Scalable Behavioral and Social Simulation for Financial Markets</a>
-                </div>
+                <h3 class="pub-title">
+                    <a href="https://arxiv.org/abs/2502.01506" target="_blank" rel="noopener">TwinMarket: A Scalable Behavioral and Social Simulation for Financial Markets</a>
+                </h3>
                 <div class="pub-authors">
                     Yuzhe Yang*, <strong>Yifei Zhang*</strong>, Minghao Wu*, Kaidi Zhang, Yunmiao Zhang, et al.
                 </div>
@@ -287,11 +290,11 @@
                     <span class="pub-award">🏆 Best Paper Award @ ICLR 2025 Workshop on Advances in Financial AI (1/53)</span>
                 </div>
                 <div class="pub-tldr">
-                    <strong>TL;DR</strong> A <strong>multi-agent simulation platform</strong> for financial markets that integrates <strong>behavioral economics and social network dynamics</strong>, enabling large-scale market experiments with diverse agent behaviors.
+                    <strong>TL;DR</strong> A <strong>multi-agent simulation platform</strong> for financial markets that integrates behavioral economics and social network dynamics, enabling large-scale market experiments with diverse agent behaviors.
                 </div>
                 <div class="pub-links">
-                    <a href="https://arxiv.org/abs/2502.01506" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
-                    <a href="https://github.com/freedomintelligence/TwinMarket" target="_blank"><i class="fab fa-github"></i> Code<span class="github-stars" data-repo="freedomintelligence/TwinMarket"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                    <a href="https://arxiv.org/abs/2502.01506" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> arXiv</a>
+                    <a href="https://github.com/freedomintelligence/TwinMarket" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#github"></use></svg> Code<span class="github-stars" hidden data-repo="freedomintelligence/TwinMarket"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#star"></use></svg><span class="star-count"></span><span class="sr-only"> GitHub stars</span></span></a>
                 </div>
             </article>
 
@@ -300,31 +303,31 @@
         <!-- Experiences -->
         <section id="experiences" class="reveal">
             <div class="sec-head">
-                <span class="sec-index">03</span>
+                <span class="sec-index" aria-hidden="true">03</span>
                 <h2>Education</h2>
             </div>
 
             <div class="exp-item">
                 <div class="exp-logo-wrap">
-                    <img src="img/nju.png" alt="NJU" class="exp-logo">
+                    <img src="img/nju.png" alt="NJU" class="exp-logo" width="24" height="24" loading="lazy" decoding="async">
                 </div>
                 <div>
                     <div class="exp-header">
-                        <div class="exp-title">Nanjing University</div>
+                        <h3 class="exp-title">Nanjing University</h3>
                         <div class="exp-date">2024.09 – Present</div>
                     </div>
                     <div class="exp-role">Master's Student in Financial Engineering and Fintech</div>
-                    <div class="exp-advisor">School of Management & Engineering | Advised by <a href="https://sme.nju.edu.cn/yhh/list.htm" target="_blank">Prof. Honghai Yu</a></div>
+                    <div class="exp-advisor">School of Management & Engineering | Advised by <a href="https://sme.nju.edu.cn/yhh/list.htm" target="_blank" rel="noopener">Prof. Honghai Yu</a></div>
                 </div>
             </div>
 
             <div class="exp-item">
                 <div class="exp-logo-wrap">
-                    <img src="img/nju.png" alt="NJU" class="exp-logo">
+                    <img src="img/nju.png" alt="NJU" class="exp-logo" width="24" height="24" loading="lazy" decoding="async">
                 </div>
                 <div>
                     <div class="exp-header">
-                        <div class="exp-title">Nanjing University</div>
+                        <h3 class="exp-title">Nanjing University</h3>
                         <div class="exp-date">2020.09 – 2024.06</div>
                     </div>
                     <div class="exp-role">Bachelor in Computer Science and Technology</div>
@@ -333,66 +336,66 @@
             </div>
 
             <div class="sec-head sec-head-gap">
-                <span class="sec-index">04</span>
+                <span class="sec-index" aria-hidden="true">04</span>
                 <h2>Internships</h2>
             </div>
 
             <div class="exp-item">
                 <div class="exp-logo-wrap">
-                    <img src="img/century-frontier.png" alt="Century Frontier" class="exp-logo">
+                    <img src="img/century-frontier.png" alt="Century Frontier" class="exp-logo" width="24" height="24" loading="lazy" decoding="async">
                 </div>
                 <div>
                     <div class="exp-header">
-                        <div class="exp-title">Century Frontier</div>
+                        <h3 class="exp-title">Century Frontier</h3>
                         <div class="exp-date">2026.07 – Present</div>
                     </div>
-                    <div class="exp-role">Research Intern</div>
+                    <div class="exp-role">Agentic Quant Research Intern</div>
                     <div class="exp-advisor">Working on <strong>AutoResearch in the quantitative area</strong>.</div>
                 </div>
             </div>
 
             <div class="exp-item">
                 <div class="exp-logo-wrap">
-                    <img src="img/xyz-logo-black.svg" alt="XYZ AI LAB" class="exp-logo logo-light">
-                    <img src="img/xyz-logo-white.svg" alt="XYZ AI LAB" class="exp-logo logo-dark">
+                    <img src="img/xyz-logo-black.svg" alt="XYZ AI LAB" class="exp-logo logo-light" width="24" height="24" loading="lazy" decoding="async">
+                    <img src="img/xyz-logo-white.svg" alt="XYZ AI LAB" class="exp-logo logo-dark" width="24" height="24" loading="lazy" decoding="async">
                 </div>
                 <div>
                     <div class="exp-header">
-                        <div class="exp-title">XYZ AI LAB</div>
+                        <h3 class="exp-title">XYZ AI LAB</h3>
                         <div class="exp-date">2026.04 – 2026.07</div>
                     </div>
                     <div class="exp-role">Research Intern</div>
-                    <div class="exp-advisor">Focusing on <strong>AI4AI research on LLM Post-training</strong> | Advised by <a href="https://www.microsoft.com/en-us/research/people/xiaoyang/" target="_blank">Xiao Yang</a> and <a href="https://sites.google.com/view/jiangbian" target="_blank">Jiang Bian</a></div>
+                    <div class="exp-advisor">Focusing on <strong>AI4AI research on LLM Post-training</strong> | Advised by <a href="https://www.microsoft.com/en-us/research/people/xiaoyang/" target="_blank" rel="noopener">Xiao Yang</a> and <a href="https://sites.google.com/view/jiangbian" target="_blank" rel="noopener">Jiang Bian</a></div>
                 </div>
             </div>
 
             <div class="exp-item">
                 <div class="exp-logo-wrap">
-                    <img src="img/msra.png" alt="MSRA" class="exp-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <i class="fas fa-building exp-logo-icon" style="display: none;"></i>
+                    <img src="img/msra.png" alt="MSRA" class="exp-logo" width="24" height="24" loading="lazy" decoding="async">
+
                 </div>
                 <div>
                     <div class="exp-header">
-                        <div class="exp-title">Microsoft Research Asia (MSRA)</div>
+                        <h3 class="exp-title">Microsoft Research Asia (MSRA)</h3>
                         <div class="exp-date">2025.05 – 2026.01</div>
                     </div>
                     <div class="exp-role">Research Intern</div>
-                    <div class="exp-advisor">Focusing on <strong>Autonomous Agent</strong> research | Advised by <a href="https://www.microsoft.com/en-us/research/people/xiaoyang/" target="_blank">Xiao Yang</a></div>
+                    <div class="exp-advisor">Focusing on <strong>Autonomous Agent</strong> research | Advised by <a href="https://www.microsoft.com/en-us/research/people/xiaoyang/" target="_blank" rel="noopener">Xiao Yang</a></div>
                 </div>
             </div>
 
             <div class="exp-item">
                 <div class="exp-logo-wrap">
-                    <img src="img/cuhksz.png" alt="CUHK" class="exp-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <i class="fas fa-university exp-logo-icon" style="display: none;"></i>
+                    <img src="img/optimized/cuhksz-48.webp" alt="CUHK" class="exp-logo" width="24" height="24" loading="lazy" decoding="async">
+
                 </div>
                 <div>
                     <div class="exp-header">
-                        <div class="exp-title">CUHK-Shenzhen NLP Group</div>
+                        <h3 class="exp-title">CUHK-Shenzhen NLP Group</h3>
                         <div class="exp-date">2024.07 – 2025.05</div>
                     </div>
                     <div class="exp-role">Research Assistant</div>
-                    <div class="exp-advisor">Exploring <strong>Large Language Models in Finance</strong> | Advised by <a href="https://sds.cuhk.edu.cn/teacher/571" target="_blank">Prof. Benyou Wang</a></div>
+                    <div class="exp-advisor">Exploring <strong>Large Language Models in Finance</strong> | Advised by <a href="https://sds.cuhk.edu.cn/teacher/571" target="_blank" rel="noopener">Prof. Benyou Wang</a></div>
                 </div>
             </div>
         </section>
@@ -403,23 +406,23 @@
         <div class="container">
             <p>&copy; 2024–<span id="year">2026</span> Yifei Zhang</p>
             <p><a href="mailto:yf_zhang@smail.nju.edu.cn">yf_zhang@smail.nju.edu.cn</a></p>
-            <p>Last updated: August 2, 2026</p>
+            <p>Last updated: September 11, 2026</p>
         </div>
     </footer>
 
     <!-- WeChat Modal -->
-    <div id="wechat-modal" class="wechat-modal">
+    <dialog id="wechat-modal" class="wechat-modal" aria-labelledby="wechat-title">
         <div class="wechat-content">
-            <span class="wechat-close">&times;</span>
-            <h3><i class="fab fa-weixin"></i>WeChat QR Code</h3>
-            <img src="img/wechat.png" alt="WeChat QR Code" id="wechat-qr">
+            <button type="button" class="wechat-close" aria-label="Close WeChat QR code" autofocus>&times;</button>
+            <h2 id="wechat-title"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#weixin"></use></svg>WeChat QR Code</h2>
+            <img src="img/optimized/wechat-560.webp" width="560" height="764" loading="lazy" decoding="async" alt="WeChat QR Code" id="wechat-qr">
             <p>Scan the QR code to add me on WeChat</p>
         </div>
-    </div>
+    </dialog>
 
     <!-- Back to Top -->
-    <button id="backToTop" class="back-to-top" title="Back to top" aria-label="Back to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <button id="backToTop" class="back-to-top" type="button" hidden title="Back to top" aria-label="Back to top">
+        <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>

@@ -10,21 +10,23 @@
     --bg-elev: #ffffff;
     --ink: #1d1b16;
     --ink-soft: #45413a;
-    --muted: #837c6d;
+    --muted: #70695d;
     --line: #e4ded0;
     --accent: #2e4bd7;
     --accent-soft: rgba(46, 75, 215, 0.07);
-    --gold: #a87c1f;
+    --gold: #876217;
 
     --serif: "Fraunces", "Songti SC", "STSong", "Noto Serif CJK SC", serif;
     --text: "Newsreader", "Songti SC", "STSong", Georgia, serif;
-    --mono: "IBM Plex Mono", "SF Mono", Menlo, Consolas, monospace;
+    --mono: "Homepage Mono", "SF Mono", Menlo, Consolas, monospace;
 
     --content-w: 720px;
     --topbar-h: 64px;
+    color-scheme: light;
 }
 
 [data-theme="dark"] {
+    color-scheme: dark;
     --bg: #171512;
     --bg-elev: #1f1c17;
     --ink: #eae6dc;
@@ -47,6 +49,48 @@
 
 html {
     scroll-behavior: smooth;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 10000;
+    padding: 8px 16px;
+    background: var(--bg-elev);
+    transform: translateY(-150%);
+}
+
+.skip-link:focus {
+    transform: none;
+}
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    fill: currentColor;
+    vertical-align: -0.125em;
 }
 
 body {
@@ -73,6 +117,14 @@ a {
 }
 
 a:hover {
+    text-decoration: underline;
+}
+
+.about-text p a,
+.news-item a,
+.exp-advisor a,
+.job-callout a,
+.page-subtitle a {
     text-decoration: underline;
 }
 
@@ -114,10 +166,16 @@ button {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    background: var(--bg);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
+}
+
+@supports (background: color-mix(in srgb, white, transparent)) {
+    .topbar {
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+    }
 }
 
 .topbar-inner {
@@ -152,6 +210,10 @@ button {
     gap: 26px;
 }
 
+.topbar nav {
+    margin-left: auto;
+}
+
 .topbar nav a {
     font-family: var(--mono);
     font-size: 0.8rem;
@@ -179,6 +241,7 @@ button {
     justify-content: center;
     width: 32px;
     height: 32px;
+    flex-shrink: 0;
     background: none;
     border: 1px solid var(--line);
     border-radius: 50%;
@@ -248,7 +311,7 @@ button {
     color: var(--ink-soft);
 }
 
-.hero-email i {
+.hero-email .icon {
     color: var(--accent);
     margin-right: 6px;
     font-size: 0.82rem;
@@ -268,7 +331,7 @@ button {
     letter-spacing: 0.02em;
 }
 
-.social-links a i {
+.social-links a .icon {
     margin-right: 5px;
     color: var(--accent);
 }
@@ -281,11 +344,12 @@ button {
 /* ---------- Sections ---------- */
 main {
     padding-bottom: 60px;
+    scroll-margin-top: calc(var(--header-height, var(--topbar-h)) + 16px);
 }
 
 section {
     margin-bottom: 56px;
-    scroll-margin-top: calc(var(--topbar-h) + 24px);
+    scroll-margin-top: calc(var(--header-height, var(--topbar-h)) + 24px);
 }
 
 .sec-head {
@@ -394,7 +458,7 @@ section {
 }
 
 .news-item {
-    display: none;
+    display: block;
     position: relative;
     padding: 9px 0;
     color: var(--ink-soft);
@@ -403,10 +467,6 @@ section {
 
 .news-item:last-child {
     border-bottom: none;
-}
-
-.news-item.active {
-    display: block;
 }
 
 .news-date {
@@ -573,9 +633,15 @@ section {
     letter-spacing: 0.07em;
     text-transform: uppercase;
     color: var(--accent);
-    background: color-mix(in srgb, var(--accent) 16%, transparent);
+    background: var(--accent-soft);
     padding: 2px 8px;
     border-radius: 3px;
+}
+
+@supports (background: color-mix(in srgb, white, transparent)) {
+    .pub-venue {
+        background: color-mix(in srgb, var(--accent) 16%, transparent);
+    }
 }
 
 .pub-venue.preprint {
@@ -654,7 +720,7 @@ section {
     font-weight: 400;
 }
 
-.github-stars i {
+.github-stars .icon {
     color: var(--gold);
     font-size: 0.64rem;
 }
@@ -793,6 +859,8 @@ section {
 }
 
 .filter-tag {
+    background: none;
+    border: 0;
     font-family: var(--mono);
     font-size: 0.82rem;
     font-weight: 500;
@@ -800,7 +868,7 @@ section {
     text-transform: uppercase;
     color: var(--muted);
     cursor: pointer;
-    padding-bottom: 3px;
+    padding: 6px 4px;
     border-bottom: 2px solid transparent;
     transition: color 0.15s ease, border-color 0.15s ease;
     user-select: none;
@@ -836,10 +904,6 @@ section {
     border-bottom: 1px solid var(--line);
 }
 
-.publication-card.hidden {
-    display: none;
-}
-
 .publication-card .pub-entry-body {
     flex: 1;
     min-width: 0;
@@ -847,8 +911,8 @@ section {
 
 .pub-thumb {
     flex-shrink: 0;
-    width: 264px;
-    height: 165px;
+    width: 200px;
+    height: 150px;
     border: 1px solid var(--line);
     border-radius: 6px;
     overflow: hidden;
@@ -864,10 +928,21 @@ section {
     max-height: 100%;
     object-fit: contain;
     display: block;
+    width: auto;
+    height: auto;
+}
+
+.abstract-details summary {
+    width: fit-content;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 0;
 }
 
 .abstract-box {
-    display: none;
     margin-top: 12px;
     padding: 14px 18px;
     background: var(--accent-soft);
@@ -915,38 +990,47 @@ footer a:hover {
 
 /* ---------- WeChat modal ---------- */
 .wechat-modal {
-    display: none;
     position: fixed;
     z-index: 9999;
     inset: 0;
+    margin: auto;
+    padding: 0;
+    width: calc(100% - 32px);
+    max-width: 380px;
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+    overflow: auto;
+    overscroll-behavior: contain;
+    background: var(--bg-elev);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
+.wechat-modal:not([open]) {
+    display: none;
+}
+
+.wechat-modal::backdrop {
     background: rgba(15, 13, 10, 0.6);
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
 }
 
-.wechat-modal.active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.2s ease;
-}
-
 .wechat-content {
-    background: var(--bg-elev);
-    border: 1px solid var(--line);
     padding: 32px;
-    border-radius: 10px;
-    max-width: 380px;
-    width: calc(100% - 48px);
     text-align: center;
     position: relative;
-    animation: slideIn 0.25s ease;
 }
 
 .wechat-close {
     position: absolute;
-    right: 16px;
-    top: 10px;
+    right: 8px;
+    top: 8px;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    background: var(--bg-elev);
     font-size: 26px;
     font-weight: 300;
     color: var(--muted);
@@ -958,7 +1042,7 @@ footer a:hover {
     color: var(--ink);
 }
 
-.wechat-content h3 {
+.wechat-content h2 {
     font-family: var(--serif);
     font-weight: 500;
     margin-bottom: 18px;
@@ -966,13 +1050,14 @@ footer a:hover {
     font-size: 1.15rem;
 }
 
-.wechat-content h3 i {
+.wechat-content h2 .icon {
     color: #09bb07;
     margin-right: 6px;
 }
 
 .wechat-content img {
     max-width: 100%;
+    height: auto;
     border-radius: 6px;
     border: 1px solid var(--line);
 }
@@ -982,22 +1067,6 @@ footer a:hover {
     font-family: var(--mono);
     color: var(--muted);
     font-size: 0.78rem;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-16px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 /* ---------- Back to top ---------- */
@@ -1032,22 +1101,15 @@ footer a:hover {
 }
 
 /* ---------- Reveal animations ---------- */
-.js .reveal {
-    opacity: 0;
-    transform: translateY(14px);
+.reveal.visible {
+    animation: riseIn 0.5s ease both;
 }
 
-.js .reveal.visible {
-    opacity: 1;
-    transform: none;
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.js .hero > * {
+.hero > * {
     animation: riseIn 0.7s ease both;
 }
 
-.js .hero > *:nth-child(2) {
+.hero > *:nth-child(2) {
     animation-delay: 0.08s;
 }
 
@@ -1067,13 +1129,11 @@ footer a:hover {
         scroll-behavior: auto;
     }
 
-    .js .reveal,
-    .js .reveal.visible,
-    .js .hero > * {
-        opacity: 1;
-        transform: none;
-        animation: none;
-        transition: none;
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
     }
 }
 
@@ -1098,7 +1158,6 @@ footer a:hover {
 
     .topbar nav ul {
         gap: 16px;
-        flex-wrap: wrap;
     }
 
     .hero {
@@ -1135,6 +1194,16 @@ footer a:hover {
         height: 190px;
     }
 
+    .sec-head {
+        flex-wrap: wrap;
+        gap: 4px 14px;
+    }
+
+    .sec-note {
+        flex-basis: 100%;
+        margin-left: 0;
+    }
+
     .page-title {
         font-size: 2rem;
     }
@@ -1142,6 +1211,42 @@ footer a:hover {
     footer .container {
         flex-direction: column;
         gap: 4px;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --header-height: 108px;
+    }
+
+    .topbar-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 6px 12px;
+    }
+
+    .topbar nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .theme-toggle {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .topbar nav ul {
+        justify-content: space-between;
+        gap: 6px;
+    }
+
+    .topbar nav a {
+        display: inline-block;
+        padding: 6px 0;
+        font-size: 0.75rem;
+        letter-spacing: 0.03em;
     }
 }
 
@@ -1171,10 +1276,28 @@ footer a:hover {
 
 /* ---------- Print ---------- */
 @media print {
+    :root,
+    [data-theme="dark"] {
+        color-scheme: light;
+        --bg: #fff;
+        --bg-elev: #fff;
+        --ink: #000;
+        --ink-soft: #222;
+        --muted: #444;
+        --accent: #222;
+        --accent-soft: #f5f5f5;
+        --gold: #444;
+        --line: #ccc;
+    }
+
     .topbar,
     .back-to-top,
     .pagination,
-    .theme-toggle {
+    .theme-toggle,
+    .skip-link,
+    .filter-tags,
+    .wechat-modal,
+    .abstract-details summary {
         display: none !important;
     }
 
@@ -1182,13 +1305,44 @@ footer a:hover {
         background: #fff;
         color: #000;
         font-size: 11pt;
+        overflow: visible !important;
     }
 
-    .news-item {
+    .news-item,
+    .news-item[hidden],
+    .year-section[hidden] {
         display: block !important;
     }
 
+    .publication-card[hidden] {
+        display: flex !important;
+    }
+
+    .reveal,
+    .reveal.visible,
+    .hero > * {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+
     section {
+        page-break-inside: auto;
+    }
+
+    .pub-entry,
+    .publication-card,
+    .exp-item {
         page-break-inside: avoid;
+    }
+
+    .abstract-details::details-content {
+        content-visibility: visible;
     }
 }

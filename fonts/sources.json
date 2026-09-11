@@ -1,0 +1,51 @@
+[
+  {
+    "family": "Fraunces",
+    "style": "italic",
+    "weight": "400",
+    "url": "https://fonts.gstatic.com/s/fraunces/v38/6NVf8FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnbB-gzTK0K1ChJdt9vIVYX9G37lvd9sPEKsxx664UJf1hLTf7W.ttf",
+    "file": "fraunces-italic-400.woff2"
+  },
+  {
+    "family": "Fraunces",
+    "style": "normal",
+    "weight": "500",
+    "url": "https://fonts.gstatic.com/s/fraunces/v38/6NUh8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7hzFUPJH58nib1603gg7S2nfgRYIchRujDg.ttf",
+    "file": "fraunces-normal-500.woff2"
+  },
+  {
+    "family": "Homepage Mono",
+    "style": "normal",
+    "weight": "400",
+    "url": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n5ig.ttf",
+    "file": "homepage-mono-normal-400.woff2"
+  },
+  {
+    "family": "Homepage Mono",
+    "style": "normal",
+    "weight": "500",
+    "url": "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJ8lc.ttf",
+    "file": "homepage-mono-normal-500.woff2"
+  },
+  {
+    "family": "Newsreader",
+    "style": "italic",
+    "weight": "400",
+    "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9kfjOCX1hbuyalUrK439vogqC9yFZCYg7oRZaLP4obnf7fTXglsMwoT-ZA.ttf",
+    "file": "newsreader-italic-400.woff2"
+  },
+  {
+    "family": "Newsreader",
+    "style": "normal",
+    "weight": "400",
+    "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9qfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBCzBDXXD9JVF438weI_ADA.ttf",
+    "file": "newsreader-normal-400.woff2"
+  },
+  {
+    "family": "Newsreader",
+    "style": "normal",
+    "weight": "600",
+    "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9qfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBCzBDXXD9JVF438wpojADA.ttf",
+    "file": "newsreader-normal-600.woff2"
+  }
+]

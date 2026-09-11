@@ -3,63 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Publications — Yifei Zhang (张逸飞)">
+    <meta name="description" content="Research publications by Yifei Zhang (张逸飞) on AI4AI, autonomous LLM agents, machine learning engineering, and financial AI, including work at ICML, ACL, and NeurIPS.">
     <title>Publications - Yifei Zhang</title>
+    <link rel="canonical" href="https://hoder-zyf.github.io/publications.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Publications — Yifei Zhang (张逸飞)">
+    <meta property="og:description" content="Research publications by Yifei Zhang (张逸飞) on AI4AI, autonomous LLM agents, machine learning engineering, and financial AI, including work at ICML, ACL, and NeurIPS.">
+    <meta property="og:url" content="https://hoder-zyf.github.io/publications.html">
+    <meta property="og:image" content="https://hoder-zyf.github.io/img/pic_image.png">
+    <meta property="og:image:alt" content="Yifei Zhang's profile illustration">
+    <meta name="twitter:card" content="summary">
     <link rel="icon" type="image/png" href="img/nju.png">
     <script>
-        document.documentElement.classList.add('js');
         (function () {
             var t = null;
             try { t = localStorage.getItem('theme'); } catch (e) {}
             if (t !== 'light' && t !== 'dark') {
-                t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             }
             document.documentElement.setAttribute('data-theme', t);
         })();
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=20260802">
-    <script src="main.js?v=20260802" defer></script>
+    <link rel="stylesheet" href="fonts/fonts.css?v=20260911">
+    <link rel="stylesheet" href="styles.css?v=20260911">
+    <script src="main.js?v=20260911" defer></script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <!-- Top bar -->
     <header class="topbar">
         <div class="topbar-inner">
             <a href="index.html" class="site-name">Yifei Zhang</a>
-            <nav>
+            <nav aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html#news">News</a></li>
-                    <li><a href="publications.html" class="active">Publications</a></li>
+                    <li><a href="publications.html" class="active" aria-current="page">Publications</a></li>
                     <li><a href="index.html#experiences">Experiences</a></li>
-                    <li><a href="pdf/en-cv-zyf.pdf" target="_blank">CV</a></li>
-                    <li>
-                        <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">
-                            <i class="fas fa-sun icon-sun"></i>
-                            <i class="fas fa-moon icon-moon"></i>
-                        </button>
-                    </li>
+                    <li><a href="pdf/en-cv-zyf.pdf" target="_blank" rel="noopener">CV</a></li>
                 </ul>
             </nav>
+            <button id="theme-toggle" class="theme-toggle" type="button" title="Switch to dark mode" aria-label="Dark mode" aria-pressed="false" hidden>
+                <svg class="icon icon-sun" aria-hidden="true" focusable="false"><use href="img/icons.svg#sun"></use></svg>
+                <svg class="icon icon-moon" aria-hidden="true" focusable="false"><use href="img/icons.svg#moon"></use></svg>
+            </button>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="container">
+    <main id="main-content" class="container" tabindex="-1">
         <div class="page-head">
             <h1 class="page-title">Publications</h1>
             <p class="page-subtitle">* indicates equal contribution</p>
             <p class="page-subtitle">
-                Discover more on <a href="https://scholar.google.com/citations?user=b4rGdr4AAAAJ" target="_blank">Google Scholar</a>
+                Discover more on <a href="https://scholar.google.com/citations?user=b4rGdr4AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
             </p>
 
+            <p id="filter-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+
             <!-- Filter Tags -->
-            <div class="filter-tags">
-                <span class="filter-tag active" data-filter="all">All</span>
-                <span class="filter-tag" data-filter="cs">CS</span>
-                <span class="filter-tag" data-filter="finance">Finance</span>
+            <div class="filter-tags" role="group" aria-label="Filter publications" hidden>
+                <button type="button" class="filter-tag active" data-filter="all" aria-pressed="true">All</button>
+                <button type="button" class="filter-tag" data-filter="cs" aria-pressed="false">CS</button>
+                <button type="button" class="filter-tag" data-filter="finance" aria-pressed="false">Finance</button>
             </div>
         </div>
 
@@ -70,9 +75,9 @@
             <!-- AI4AI at Scale -->
             <div class="publication-card" data-tags="cs">
                 <div class="pub-entry-body">
-                    <div class="pub-title">
-                        <a href="http://xyz-lab.ai/blogs/ai4ai-at-scale/assets/bounded-exploration-ai4ai-system-optimization.pdf" target="_blank">AI4AI at Scale: A Full-Pipeline System for Enhancing LLM Agentic Capabilities</a>
-                    </div>
+                    <h3 class="pub-title">
+                        <a href="https://xyz-lab.ai/blogs/ai4ai-at-scale/assets/bounded-exploration-ai4ai-system-optimization.pdf" target="_blank" rel="noopener">AI4AI at Scale: A Full-Pipeline System for Enhancing LLM Agentic Capabilities</a>
+                    </h3>
                     <div class="pub-authors">
                         XYZ Agentic Team
                     </div>
@@ -81,26 +86,26 @@
                         <span class="pub-award">🚀 Highest reported scores on BrowseComp-ZH, LiveBrowseComp, and WideSearch among listed systems</span>
                     </div>
                     <div class="pub-desc">
-                        We present <strong>AI4AI</strong>, a <strong>bounded-exploration, verification-gated framework</strong> for improving complete agentic systems, instantiated in <strong>XYZ-Aquila</strong>, a family of open-weight Deep Search agents. XYZ-Aquila-mini attains the highest score in every column of the seven-benchmark sub-40B open-weight table, while XYZ-Aquila-pro leads the sub-400B table.
+                        We present <strong>AI4AI</strong>, a <strong>bounded-exploration, verification-gated framework</strong> for improving complete agentic systems, instantiated in XYZ-Aquila, a family of open-weight Deep Search agents. XYZ-Aquila-mini attains the highest score in every column of the seven-benchmark sub-40B open-weight table, while XYZ-Aquila-pro leads the sub-400B table.
                     </div>
                     <div class="pub-links">
-                        <a href="http://xyz-lab.ai/blogs/ai4ai-at-scale/assets/bounded-exploration-ai4ai-system-optimization.pdf" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <a href="https://huggingface.co/XYZAILab/XYZ-Aquila-pro" target="_blank">🤗 Model</a>
-                        <a href="https://github.com/XYZ-AI-Lab/AxisAgentic" target="_blank"><i class="fab fa-github"></i> Harness<span class="github-stars" data-repo="XYZ-AI-Lab/AxisAgentic"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                        <a href="https://xyz-lab.ai/blogs/ai4ai-at-scale/assets/bounded-exploration-ai4ai-system-optimization.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> PDF</a>
+                        <a href="https://huggingface.co/XYZAILab/XYZ-Aquila-pro" target="_blank" rel="noopener">🤗 Model</a>
+                        <a href="https://github.com/XYZ-AI-Lab/AxisAgentic" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#github"></use></svg> Harness<span class="github-stars" hidden data-repo="XYZ-AI-Lab/AxisAgentic"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#star"></use></svg><span class="star-count"></span><span class="sr-only"> GitHub stars</span></span></a>
                     </div>
                 </div>
-                <div class="pub-thumb">
-                    <img src="img/ai4ai.png" alt="AI4AI at Scale" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
-                </div>
+                <a class="pub-thumb" href="img/ai4ai.png" target="_blank" rel="noopener" aria-label="View full-size figure: AI4AI at Scale">
+                    <img src="img/optimized/ai4ai-480.webp" srcset="img/optimized/ai4ai-480.webp 480w, img/optimized/ai4ai-586.webp 586w" sizes="(max-width: 768px) calc(100vw - 40px), 200px" width="586" height="425" loading="lazy" decoding="async" alt="AI4AI at Scale">
+                </a>
             </div>
 
             <!-- Reasoning as Gradient -->
             <div class="publication-card" data-tags="cs">
                 <div class="pub-entry-body">
-                    <div class="pub-title">
-                        <a href="https://arxiv.org/abs/2603.01692" target="_blank">Reasoning as Gradient: Scaling MLE Agents Beyond Tree Search</a>
+                    <h3 class="pub-title">
+                        <a href="https://arxiv.org/abs/2603.01692" target="_blank" rel="noopener">Reasoning as Gradient: Scaling MLE Agents Beyond Tree Search</a>
                         <span class="pub-scene">(MLE Setting of RD-Agent)</span>
-                    </div>
+                    </h3>
                     <div class="pub-authors">
                         <strong>Yifei Zhang*</strong>, Xu Yang*, Xiao Yang*, Bowen Xian, Qizheng Li, Shikai Fang, Jingyuan Li, Jian Wang, Mingrui Xu, Weiqing Liu, Jiang Bian
                     </div>
@@ -109,26 +114,26 @@
                         <span class="pub-award">📈 Gradient-based optimization scales better than tree search with stronger reasoning models</span>
                     </div>
                     <div class="pub-desc">
-                        We introduce <strong>Gome</strong>, the <strong>MLE setting of RD-Agent</strong>, mapping diagnostic reasoning to gradient computation, success memory to momentum, and multi-trace execution to distributed optimization. <strong>Under a closed-world protocol</strong>, it reaches <strong>35.1% any-medal rate on MLE-Bench</strong> with a 12-hour single-V100 budget, and scaling experiments show that <strong>gradient-based optimization increasingly outperforms gradient-free tree search</strong> as model reasoning capabilities improve.
+                        We introduce <strong>Gome</strong>, the <strong>MLE setting of RD-Agent</strong>, mapping diagnostic reasoning to gradient computation, success memory to momentum, and multi-trace execution to distributed optimization. Under a closed-world protocol, it reaches 35.1% any-medal rate on MLE-Bench with a 12-hour single-V100 budget, and scaling experiments show that gradient-based optimization increasingly outperforms gradient-free tree search as model reasoning capabilities improve.
                     </div>
                     <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2603.01692" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
-                        <a href="https://huggingface.co/datasets/amstrongzyf/Gome-GPT5-Traces" target="_blank">🤗 Dataset</a>
-                        <a href="https://github.com/microsoft/RD-Agent" target="_blank"><i class="fab fa-github"></i> Project Repo<span class="github-stars" data-repo="microsoft/RD-Agent"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                        <a href="https://arxiv.org/abs/2603.01692" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> arXiv</a>
+                        <a href="https://huggingface.co/datasets/amstrongzyf/Gome-GPT5-Traces" target="_blank" rel="noopener">🤗 Dataset</a>
+                        <a href="https://github.com/microsoft/RD-Agent" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#github"></use></svg> Project Repo<span class="github-stars" hidden data-repo="microsoft/RD-Agent"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#star"></use></svg><span class="star-count"></span><span class="sr-only"> GitHub stars</span></span></a>
                     </div>
                 </div>
-                <div class="pub-thumb">
-                    <img src="img/gome.jpg" alt="Gome" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
-                </div>
+                <a class="pub-thumb" href="img/gome.jpg" target="_blank" rel="noopener" aria-label="View full-size figure: Gome">
+                    <img src="img/optimized/gome-480.webp" srcset="img/optimized/gome-480.webp 480w, img/optimized/gome-960.webp 960w" sizes="(max-width: 768px) calc(100vw - 40px), 200px" width="5504" height="3072" loading="lazy" decoding="async" alt="Gome">
+                </a>
             </div>
 
             <!-- FT-Dojo -->
             <div class="publication-card" data-tags="cs">
                 <div class="pub-entry-body">
-                    <div class="pub-title">
-                        <a href="https://arxiv.org/abs/2603.01712" target="_blank">FT-Dojo: Towards Autonomous LLM Fine-Tuning with Language Agents</a>
+                    <h3 class="pub-title">
+                        <a href="https://arxiv.org/abs/2603.01712" target="_blank" rel="noopener">FT-Dojo: Towards Autonomous LLM Fine-Tuning with Language Agents</a>
                         <span class="pub-scene">(Fine-Tuning Setting of RD-Agent)</span>
-                    </div>
+                    </h3>
                     <div class="pub-authors">
                         Qizheng Li*, <strong>Yifei Zhang*</strong>, Xiao Yang*, Xu Yang*, Zhuo Wang, Weiqing Liu, Jiang Bian
                     </div>
@@ -137,16 +142,16 @@
                         <span class="pub-award">🤖 Benchmarking autonomous end-to-end LLM fine-tuning</span>
                     </div>
                     <div class="pub-desc">
-                        We introduce <strong>FT-Dojo</strong>, the <strong>fine-tuning setting of RD-Agent</strong>, with <strong>13 tasks across 5 domains</strong> for autonomous LLM fine-tuning, together with <strong>FT-Agent</strong>, a purpose-built system that achieves the best performance on <strong>10 of 13 tasks</strong> and iteratively improves strategies from evaluation history.
+                        We introduce <strong>FT-Dojo</strong>, the <strong>fine-tuning setting of RD-Agent</strong>, with 13 tasks across 5 domains for autonomous LLM fine-tuning, together with FT-Agent, a purpose-built system that achieves the best performance on 10 of 13 tasks and iteratively improves strategies from evaluation history.
                     </div>
                     <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2603.01712" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
-                        <a href="https://github.com/microsoft/RD-Agent" target="_blank"><i class="fab fa-github"></i> Project Repo<span class="github-stars" data-repo="microsoft/RD-Agent"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                        <a href="https://arxiv.org/abs/2603.01712" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> arXiv</a>
+                        <a href="https://github.com/microsoft/RD-Agent" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#github"></use></svg> Project Repo<span class="github-stars" hidden data-repo="microsoft/RD-Agent"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#star"></use></svg><span class="star-count"></span><span class="sr-only"> GitHub stars</span></span></a>
                     </div>
                 </div>
-                <div class="pub-thumb">
-                    <img src="img/FT-Dojo.png" alt="FT-Dojo" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
-                </div>
+                <a class="pub-thumb" href="img/FT-Dojo.png" target="_blank" rel="noopener" aria-label="View full-size figure: FT-Dojo">
+                    <img src="img/optimized/FT-Dojo-480.webp" srcset="img/optimized/FT-Dojo-480.webp 480w, img/optimized/FT-Dojo-960.webp 960w" sizes="(max-width: 768px) calc(100vw - 40px), 200px" width="2879" height="1063" loading="lazy" decoding="async" alt="FT-Dojo">
+                </a>
             </div>
         </div>
 
@@ -157,10 +162,10 @@
             <!-- R&D-Agent -->
             <div class="publication-card" data-tags="cs">
                 <div class="pub-entry-body">
-                    <div class="pub-title">
-                        <a href="https://arxiv.org/abs/2505.14738" target="_blank">R&amp;D-Agent: An LLM-Agent Framework Towards Autonomous Data Science</a>
+                    <h3 class="pub-title">
+                        <a href="https://arxiv.org/abs/2505.14738" target="_blank" rel="noopener">R&amp;D-Agent: An LLM-Agent Framework Towards Autonomous Data Science</a>
                         <span class="pub-scene">(Technical Report)</span>
-                    </div>
+                    </h3>
                     <div class="pub-authors">
                         Xu Yang, Xiao Yang, Shikai Fang, <strong>Yifei Zhang</strong>, Jian Wang, et al.
                     </div>
@@ -172,21 +177,21 @@
                         A top-performing open-source framework on MLE-Bench that organizes autonomous data science into two parts: <strong>Research</strong> for proposing ideas and <strong>Development</strong> for converting them into executable workflows and solutions.
                     </div>
                     <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2505.14738" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
-                        <a href="https://github.com/microsoft/RD-Agent" target="_blank"><i class="fab fa-github"></i> Project Repo<span class="github-stars" data-repo="microsoft/RD-Agent"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                        <a href="https://arxiv.org/abs/2505.14738" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> arXiv</a>
+                        <a href="https://github.com/microsoft/RD-Agent" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#github"></use></svg> Project Repo<span class="github-stars" hidden data-repo="microsoft/RD-Agent"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#star"></use></svg><span class="star-count"></span><span class="sr-only"> GitHub stars</span></span></a>
                     </div>
                 </div>
-                <div class="pub-thumb">
-                    <img src="img/RDAgent.png" alt="R&D-Agent" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
-                </div>
+                <a class="pub-thumb" href="img/RDAgent.png" target="_blank" rel="noopener" aria-label="View full-size figure: R&D-Agent">
+                    <img src="img/optimized/RDAgent-480.webp" srcset="img/optimized/RDAgent-480.webp 480w, img/optimized/RDAgent-960.webp 960w" sizes="(max-width: 768px) calc(100vw - 40px), 200px" width="10000" height="6120" loading="lazy" decoding="async" alt="R&D-Agent">
+                </a>
             </div>
 
             <!-- AI-Trader -->
             <div class="publication-card" data-tags="cs">
                 <div class="pub-entry-body">
-                    <div class="pub-title">
-                        <a href="https://arxiv.org/abs/2512.10971" target="_blank">AI-Trader: Benchmarking Autonomous Agents in Real-Time Financial Markets</a>
-                    </div>
+                    <h3 class="pub-title">
+                        <a href="https://arxiv.org/abs/2512.10971" target="_blank" rel="noopener">AI-Trader: Benchmarking Autonomous Agents in Real-Time Financial Markets</a>
+                    </h3>
                     <div class="pub-authors">
                         Tianyu Fan, Yuhao Yang, Yangqin Jiang, <strong>Yifei Zhang</strong>, Yuxuan Chen, Chao Huang, et al.
                     </div>
@@ -198,21 +203,21 @@
                         A comprehensive benchmark for evaluating <strong>autonomous trading agents</strong> in real-time financial markets across <strong>NASDAQ 100, SSE 50, and cryptocurrency markets</strong>, enabling fair comparison of AI trading strategies with zero human intervention.
                     </div>
                     <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2512.10971" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
-                        <a href="https://github.com/HKUDS/AI-Trader" target="_blank"><i class="fab fa-github"></i> Code<span class="github-stars" data-repo="HKUDS/AI-Trader"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                        <a href="https://arxiv.org/abs/2512.10971" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> arXiv</a>
+                        <a href="https://github.com/HKUDS/AI-Trader" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#github"></use></svg> Code<span class="github-stars" hidden data-repo="HKUDS/AI-Trader"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#star"></use></svg><span class="star-count"></span><span class="sr-only"> GitHub stars</span></span></a>
                     </div>
                 </div>
-                <div class="pub-thumb">
-                    <img src="img/AI_Trader.png" alt="AI-Trader" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
-                </div>
+                <a class="pub-thumb" href="img/AI_Trader.png" target="_blank" rel="noopener" aria-label="View full-size figure: AI-Trader">
+                    <img src="img/optimized/AI_Trader-480.webp" srcset="img/optimized/AI_Trader-480.webp 480w, img/optimized/AI_Trader-960.webp 960w" sizes="(max-width: 768px) calc(100vw - 40px), 200px" width="2899" height="1283" loading="lazy" decoding="async" alt="AI-Trader">
+                </a>
             </div>
 
             <!-- TwinMarket -->
             <div class="publication-card" data-tags="cs">
                 <div class="pub-entry-body">
-                    <div class="pub-title">
-                        <a href="https://arxiv.org/abs/2502.01506" target="_blank">TwinMarket: A Scalable Behavioral and Social Simulation for Financial Markets</a>
-                    </div>
+                    <h3 class="pub-title">
+                        <a href="https://arxiv.org/abs/2502.01506" target="_blank" rel="noopener">TwinMarket: A Scalable Behavioral and Social Simulation for Financial Markets</a>
+                    </h3>
                     <div class="pub-authors">
                         Yuzhe Yang*, <strong>Yifei Zhang*</strong>, Minghao Wu*, Kaidi Zhang, Yunmiao Zhang, et al.
                     </div>
@@ -224,47 +229,47 @@
                         A <strong>multi-agent simulation platform</strong> for financial markets that integrates <strong>behavioral economics and social network dynamics</strong>, enabling large-scale market experiments with diverse agent behaviors.
                     </div>
                     <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2502.01506" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
-                        <a href="https://github.com/freedomintelligence/TwinMarket" target="_blank"><i class="fab fa-github"></i> Code<span class="github-stars" data-repo="freedomintelligence/TwinMarket"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                        <a href="https://arxiv.org/abs/2502.01506" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> arXiv</a>
+                        <a href="https://github.com/freedomintelligence/TwinMarket" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#github"></use></svg> Code<span class="github-stars" hidden data-repo="freedomintelligence/TwinMarket"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#star"></use></svg><span class="star-count"></span><span class="sr-only"> GitHub stars</span></span></a>
                     </div>
                 </div>
-                <div class="pub-thumb">
-                    <img src="img/TwinMarket.jpg" alt="TwinMarket" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
-                </div>
+                <a class="pub-thumb" href="img/TwinMarket.jpg" target="_blank" rel="noopener" aria-label="View full-size figure: TwinMarket">
+                    <img src="img/optimized/TwinMarket-480.webp" srcset="img/optimized/TwinMarket-480.webp 480w, img/optimized/TwinMarket-960.webp 960w" sizes="(max-width: 768px) calc(100vw - 40px), 200px" width="4003" height="1876" loading="lazy" decoding="async" alt="TwinMarket">
+                </a>
             </div>
 
             <!-- UCFE -->
             <div class="publication-card" data-tags="cs">
                 <div class="pub-entry-body">
-                    <div class="pub-title">
-                        <a href="https://arxiv.org/abs/2410.14059" target="_blank">UCFE: A User-Centric Financial Expertise Benchmark for Large Language Models</a>
-                    </div>
+                    <h3 class="pub-title">
+                        <a href="https://arxiv.org/abs/2410.14059" target="_blank" rel="noopener">UCFE: A User-Centric Financial Expertise Benchmark for Large Language Models</a>
+                    </h3>
                     <div class="pub-authors">
                         Yuzhe Yang*, <strong>Yifei Zhang*</strong>, Yan Hu*, Yilin Guo, Ruoli Gan, et al.
                     </div>
                     <div class="pub-meta">
                         <span class="pub-venue">Findings of NAACL 2025</span>
-                        <span class="pub-award">🤗 <a href="https://huggingface.co/papers/date/2024-10-21" target="_blank">#1 Paper of the day on Hugging Face</a></span>
+                        <span class="pub-award">🤗 <a href="https://huggingface.co/papers/date/2024-10-21" target="_blank" rel="noopener">#1 Paper of the day on Hugging Face</a></span>
                     </div>
                     <div class="pub-desc">
                         A comprehensive benchmark evaluating LLMs' <strong>financial expertise from a user-centric perspective</strong>, covering domain knowledge, application capabilities, and trustworthiness across <strong>300+ real-world questions</strong>.
                     </div>
                     <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2410.14059" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
-                        <a href="https://github.com/TobyYang7/UCFE-Benchmark" target="_blank"><i class="fab fa-github"></i> Code<span class="github-stars" data-repo="TobyYang7/UCFE-Benchmark"><i class="fas fa-star"></i><span class="star-count">...</span></span></a>
+                        <a href="https://arxiv.org/abs/2410.14059" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> arXiv</a>
+                        <a href="https://github.com/TobyYang7/UCFE-Benchmark" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#github"></use></svg> Code<span class="github-stars" hidden data-repo="TobyYang7/UCFE-Benchmark"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#star"></use></svg><span class="star-count"></span><span class="sr-only"> GitHub stars</span></span></a>
                     </div>
                 </div>
-                <div class="pub-thumb">
-                    <img src="img/UCFE.png" alt="UCFE" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
-                </div>
+                <a class="pub-thumb" href="img/UCFE.png" target="_blank" rel="noopener" aria-label="View full-size figure: UCFE">
+                    <img src="img/optimized/UCFE-480.webp" srcset="img/optimized/UCFE-480.webp 480w, img/optimized/UCFE-960.webp 960w" sizes="(max-width: 768px) calc(100vw - 40px), 200px" width="3586" height="1571" loading="lazy" decoding="async" alt="UCFE">
+                </a>
             </div>
 
             <!-- Separating Skill from Luck -->
             <div class="publication-card" data-tags="finance">
                 <div class="pub-entry-body">
-                    <div class="pub-title">
+                    <h3 class="pub-title">
                         Separating Skill from Luck: LLM-Based Belief Extraction and Investment Ability Measurement of Financial Influencers
-                    </div>
+                    </h3>
                     <div class="pub-authors">
                         Honghai Yu, Yunmiao Zhang, Haining Wang, <strong>Yifei Zhang</strong>
                     </div>
@@ -273,26 +278,26 @@
                         <span class="pub-award">🏅 Outstanding Paper Award (2/20)</span>
                     </div>
                     <div class="pub-desc">
-                        Analyzes <strong>10M+ posts from 60,000+ financial influencers</strong> on Xueqiu using LLMs to extract stock expectations, combined with <strong>finite mixture models</strong> to separate skill from luck. Findings reveal only <strong>46.63% possess positive investment ability</strong>, while following top 10% yields 22.4 bps daily returns.
+                        Analyzes <strong>10M+ posts from 60,000+ financial influencers</strong> on Xueqiu using LLMs to extract stock expectations, combined with <strong>finite mixture models</strong> to separate skill from luck. Findings reveal only 46.63% possess positive investment ability, while following top 10% yields 22.4 bps daily returns.
                     </div>
-                    <div class="pub-links">
-                        <a href="#" onclick="toggleAbstract('abstract-true-gold'); return false;"><i class="fas fa-file-alt"></i> Abstract</a>
-                    </div>
-                    <div id="abstract-true-gold" class="abstract-box">
-                        <strong>Abstract:</strong> This study leverages <strong>Large Language Models</strong> to extract stock expectation beliefs from millions of posts by 60,000+ financial influencers on Xueqiu, and employs <strong>finite mixture models with EM algorithm</strong> to filter out "luck noise" and scientifically measure actual investment abilities. Results show only <strong>46.63% of influencers possess positive investment ability</strong>, with merely 2.22% achieving strong weekly returns of 1.25%. A long-short portfolio following top 10% influencers yields <strong>22.4 bps daily returns</strong> and <strong>4.94x cumulative returns</strong> from 2016-2025. Retail investors struggle to identify skilled influencers, while institutional investors respond more to high-ability KOLs. The methodology provides regulators and platforms with tools to identify and monitor financial social media content.
-                    </div>
+                    <details class="abstract-details">
+                        <summary>Abstract</summary>
+                        <div id="abstract-true-gold" class="abstract-box">
+                            <strong>Abstract:</strong> This study leverages <strong>Large Language Models</strong> to extract stock expectation beliefs from millions of posts by 60,000+ financial influencers on Xueqiu, and employs <strong>finite mixture models with EM algorithm</strong> to filter out "luck noise" and scientifically measure actual investment abilities. Results show only <strong>46.63% of influencers possess positive investment ability</strong>, with merely 2.22% achieving strong weekly returns of 1.25%. A long-short portfolio following top 10% influencers yields <strong>22.4 bps daily returns</strong> and <strong>4.94x cumulative returns</strong> from 2016-2025. Retail investors struggle to identify skilled influencers, while institutional investors respond more to high-ability KOLs. The methodology provides regulators and platforms with tools to identify and monitor financial social media content.
+                        </div>
+                    </details>
                 </div>
-                <div class="pub-thumb">
-                    <img src="img/true_gold.png" alt="Separating Skill from Luck" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
-                </div>
+                <a class="pub-thumb" href="img/true_gold.png" target="_blank" rel="noopener" aria-label="View full-size figure: Separating Skill from Luck">
+                    <img src="img/optimized/true_gold-480.webp" srcset="img/optimized/true_gold-480.webp 480w, img/optimized/true_gold-960.webp 960w" sizes="(max-width: 768px) calc(100vw - 40px), 200px" width="2816" height="1217" loading="lazy" decoding="async" alt="Separating Skill from Luck">
+                </a>
             </div>
 
             <!-- Shared Fortunes and Risks -->
             <div class="publication-card" data-tags="finance">
                 <div class="pub-entry-body">
-                    <div class="pub-title">
+                    <h3 class="pub-title">
                         Shared Fortunes and Risks: Stock Price Spillover Effects of Corporate Ties — Evidence from the Chinese Social Media Platform "Xueqiu"
-                    </div>
+                    </h3>
                     <div class="pub-authors">
                         Honghai Yu, Yunmiao Zhang, Zhuo Chen, Chang Zeng, <strong>Yifei Zhang</strong>
                     </div>
@@ -303,16 +308,16 @@
                     <div class="pub-desc">
                         Investigates <strong>stock price spillover effects</strong> through <strong>corporate network ties on social media</strong>, revealing how social connections influence market dynamics and investor behavior.
                     </div>
-                    <div class="pub-links">
-                        <a href="#" onclick="toggleAbstract('abstract-shared-fortunes'); return false;"><i class="fas fa-file-alt"></i> Abstract</a>
-                    </div>
-                    <div id="abstract-shared-fortunes" class="abstract-box">
-                        <strong>Abstract:</strong> This paper investigates the <strong>stock price spillover effects</strong> arising from <strong>corporate network ties on the Chinese social media platform "Xueqiu"</strong>. By constructing a comprehensive dataset of corporate relationships and stock price movements, we analyze how information and sentiment propagate through social networks and impact stock valuations. Our findings reveal significant spillover effects where connected firms experience correlated price movements, particularly during periods of high market volatility. We identify key mechanisms through which social media amplifies these effects, including information cascades, herding behavior, and investor attention. The results provide important insights into the role of social media in modern financial markets and have implications for portfolio management, risk assessment, and regulatory policy.
-                    </div>
+                    <details class="abstract-details">
+                        <summary>Abstract</summary>
+                        <div id="abstract-shared-fortunes" class="abstract-box">
+                            <strong>Abstract:</strong> This paper investigates the <strong>stock price spillover effects</strong> arising from <strong>corporate network ties on the Chinese social media platform "Xueqiu"</strong>. By constructing a comprehensive dataset of corporate relationships and stock price movements, we analyze how information and sentiment propagate through social networks and impact stock valuations. Our findings reveal significant spillover effects where connected firms experience correlated price movements, particularly during periods of high market volatility. We identify key mechanisms through which social media amplifies these effects, including information cascades, herding behavior, and investor attention. The results provide important insights into the role of social media in modern financial markets and have implications for portfolio management, risk assessment, and regulatory policy.
+                        </div>
+                    </details>
                 </div>
-                <div class="pub-thumb">
-                    <img src="img/xiuqi.png" alt="Shared Fortunes" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
-                </div>
+                <a class="pub-thumb" href="img/xiuqi.png" target="_blank" rel="noopener" aria-label="View full-size figure: Shared Fortunes">
+                    <img src="img/optimized/xiuqi-480.webp" srcset="img/optimized/xiuqi-480.webp 480w, img/optimized/xiuqi-960.webp 960w" sizes="(max-width: 768px) calc(100vw - 40px), 200px" width="1536" height="1024" loading="lazy" decoding="async" alt="Shared Fortunes">
+                </a>
             </div>
         </div>
 
@@ -323,9 +328,9 @@
             <!-- Open-FinLLMs -->
             <div class="publication-card" data-tags="cs">
                 <div class="pub-entry-body">
-                    <div class="pub-title">
-                        <a href="https://arxiv.org/abs/2408.11878" target="_blank">Open-FinLLMs: Open Multimodal Large Language Models for Financial Applications</a>
-                    </div>
+                    <h3 class="pub-title">
+                        <a href="https://arxiv.org/abs/2408.11878" target="_blank" rel="noopener">Open-FinLLMs: Open Multimodal Large Language Models for Financial Applications</a>
+                    </h3>
                     <div class="pub-authors">
                         Jimin Huang, Mengxi Xiao, Dong Li, Zihao Jiang, Yuzhe Yang, <strong>Yifei Zhang</strong>, et al.
                     </div>
@@ -337,21 +342,21 @@
                         A series of <strong>Financial LLMs</strong> including FinLLaMA (pre-trained on 52B tokens), FinLLaMA-instruct (573K instructions), and <strong>FinLLaVA (first open-source financial multimodal LLM)</strong> trained with 1.43M image-text instructions.
                     </div>
                     <div class="pub-links">
-                        <a href="https://arxiv.org/abs/2408.11878" target="_blank"><i class="fas fa-file-pdf"></i> arXiv</a>
-                        <a href="https://huggingface.co/collections/TheFinAI/open-finllms" target="_blank">🤗 Model</a>
+                        <a href="https://arxiv.org/abs/2408.11878" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#file-pdf"></use></svg> arXiv</a>
+                        <a href="https://huggingface.co/collections/TheFinAI/open-finllms" target="_blank" rel="noopener">🤗 Model</a>
                     </div>
                 </div>
-                <div class="pub-thumb">
-                    <img src="img/finllava.png" alt="Open-FinLLMs" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
-                </div>
+                <a class="pub-thumb" href="img/finllava.png" target="_blank" rel="noopener" aria-label="View full-size figure: Open-FinLLMs">
+                    <img src="img/optimized/finllava-480.webp" srcset="img/optimized/finllava-480.webp 480w, img/optimized/finllava-960.webp 960w" sizes="(max-width: 768px) calc(100vw - 40px), 200px" width="1886" height="735" loading="lazy" decoding="async" alt="Open-FinLLMs">
+                </a>
             </div>
 
             <!-- Do Investors Speak Louder -->
             <div class="publication-card" data-tags="finance">
                 <div class="pub-entry-body">
-                    <div class="pub-title">
+                    <h3 class="pub-title">
                         Do investors' actions speak louder than words?
-                    </div>
+                    </h3>
                     <div class="pub-authors">
                         Honghai Yu, Zhuo Chen, Yunmiao Zhang, Haining Wang, <strong>Yifei Zhang</strong>
                     </div>
@@ -362,16 +367,16 @@
                     <div class="pub-desc">
                         Examines whether posts on Chinese social media propagate noise or information, proposing that both coexist but can be distinguished by <strong>posters' trading behavior</strong>. Observing trading actions helps assess the reliability of expressed views.
                     </div>
-                    <div class="pub-links">
-                        <a href="#" onclick="toggleAbstract('abstract-investors'); return false;"><i class="fas fa-file-alt"></i> Abstract</a>
-                    </div>
-                    <div id="abstract-investors" class="abstract-box">
-                        <strong>Abstract:</strong> A large body of literature has examined whether posts on social media propagate noise or information. In this paper, we propose that both coexist on Chinese social media platforms but can be distinguished by posters' trading behavior. Individuals may post articles on social media that do not reflect their true opinions, often for impression management purposes, resulting in inconsistency between their words and subsequent actions. Additionally, observing a poster's trading behavior prior to posting can help assess the reliability of their expressed views.
-                    </div>
+                    <details class="abstract-details">
+                        <summary>Abstract</summary>
+                        <div id="abstract-investors" class="abstract-box">
+                            <strong>Abstract:</strong> A large body of literature has examined whether posts on social media propagate noise or information. In this paper, we propose that both coexist on Chinese social media platforms but can be distinguished by posters' trading behavior. Individuals may post articles on social media that do not reflect their true opinions, often for impression management purposes, resulting in inconsistency between their words and subsequent actions. Additionally, observing a poster's trading behavior prior to posting can help assess the reliability of their expressed views.
+                        </div>
+                    </details>
                 </div>
-                <div class="pub-thumb">
-                    <img src="img/yxyz.jpg" alt="Do Investors Speak Louder" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size: 2rem; color: var(--line);\'></i>'">
-                </div>
+                <a class="pub-thumb" href="img/yxyz.jpg" target="_blank" rel="noopener" aria-label="View full-size figure: Do Investors Speak Louder">
+                    <img src="img/optimized/yxyz-480.webp" srcset="img/optimized/yxyz-480.webp 480w, img/optimized/yxyz-960.webp 960w" sizes="(max-width: 768px) calc(100vw - 40px), 200px" width="1024" height="572" loading="lazy" decoding="async" alt="Do Investors Speak Louder">
+                </a>
             </div>
         </div>
     </main>
@@ -381,13 +386,13 @@
         <div class="container">
             <p>&copy; 2024–<span id="year">2026</span> Yifei Zhang</p>
             <p><a href="mailto:yf_zhang@smail.nju.edu.cn">yf_zhang@smail.nju.edu.cn</a></p>
-            <p>Last updated: August 2, 2026</p>
+            <p>Last updated: September 11, 2026</p>
         </div>
     </footer>
 
     <!-- Back to Top -->
-    <button id="backToTop" class="back-to-top" title="Back to top" aria-label="Back to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <button id="backToTop" class="back-to-top" type="button" hidden title="Back to top" aria-label="Back to top">
+        <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>
