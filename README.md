@@ -49,4 +49,4 @@ npm test
 
 For another installed Playwright engine, use `HOMEPAGE_BROWSER=firefox npm test` or `HOMEPAGE_BROWSER=webkit npm test`.
 
-The test starts its own temporary local server and mocks GitHub responses. It checks mobile/desktop overflow, sticky-header anchors, WCAG accessibility rules in both themes, keyboard controls, dialog focus and short-screen bounds, printing, reduced motion, JavaScript failure, disabled storage, and star-count caching/failure behavior. Browser automation complements manual checks; it does not establish complete accessibility conformance or cross-browser compatibility.
+The test starts its own temporary local server and mocks GitHub responses. It checks mobile/desktop overflow, sticky-header anchors, WCAG accessibility rules in both themes, keyboard controls, printing, reduced motion, JavaScript failure, disabled storage, and star-count caching/failure behavior. Browser automation complements manual checks; it does not establish complete accessibility conformance or cross-browser compatibility.

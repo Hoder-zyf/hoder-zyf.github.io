@@ -87,44 +87,6 @@
     pagination.hidden = items.length <= newsPerPage;
 })();
 
-/* ---------- WeChat modal (index) ---------- */
-(function initWechatModal() {
-    const link = document.getElementById('wechat-link');
-    const modal = document.getElementById('wechat-modal');
-    // Unsupported browsers and disabled JS can still open the QR image directly.
-    if (!link || !modal || typeof modal.showModal !== 'function') return;
-    let previousFocus;
-    let previousOverflow;
-    link.setAttribute('aria-haspopup', 'dialog');
-
-    function open(e) {
-        if (e) e.preventDefault();
-        previousFocus = document.activeElement;
-        previousOverflow = document.body.style.overflow;
-        modal.showModal();
-        document.body.style.overflow = 'hidden';
-    }
-
-    function close(e) {
-        if (e) e.preventDefault();
-        modal.close();
-    }
-
-    link.addEventListener('click', open);
-    modal.addEventListener('click', function (e) {
-        if (e.target !== modal) return;
-        const rect = modal.getBoundingClientRect();
-        if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) close();
-    });
-    modal.addEventListener('close', function () {
-        document.body.style.overflow = previousOverflow;
-        if (previousFocus && previousFocus.isConnected) previousFocus.focus({ preventScroll: true });
-    });
-
-    const closeBtn = modal.querySelector('.wechat-close');
-    if (closeBtn) closeBtn.addEventListener('click', close);
-})();
-
 /* ---------- GitHub stars ---------- */
 (function initGitHubStars() {
     const starElements = document.querySelectorAll('.github-stars');

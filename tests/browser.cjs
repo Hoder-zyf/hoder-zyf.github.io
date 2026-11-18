@@ -105,27 +105,12 @@ const server = http.createServer((req, res) => {
         await page.locator('#next-btn').click();
         assert.equal(await page.locator('#current-page').textContent(), '2');
         await page.locator('#next-btn').click();
-        assert.equal(await page.locator('.news-item:visible').count(), 3);
+        assert.equal(await page.locator('.news-item:visible').count(), 5);
         assert.equal(await page.locator('#next-btn').isDisabled(), true);
         await page.locator('#prev-btn').click();
         assert.equal(await page.locator('#current-page').textContent(), '2');
 
         await page.setViewportSize({ width: 667, height: 375 });
-        await page.locator('#wechat-link').focus();
-        await page.keyboard.press('Enter');
-        assert.equal(await page.locator('#wechat-modal').evaluate(el => el.open), true);
-        assert.equal(await page.evaluate(() => document.activeElement.className), 'wechat-close');
-        const closeRect = await page.locator('.wechat-close').boundingBox();
-        const modalRect = await page.locator('#wechat-modal').boundingBox();
-        assert.ok(closeRect.y >= 0 && closeRect.y + closeRect.height <= 375);
-        assert.ok(modalRect.y >= 0 && modalRect.y + modalRect.height <= 375);
-        await page.keyboard.press('Tab');
-        assert.ok(await page.evaluate(() => document.activeElement === document.body || !!document.activeElement.closest('#wechat-modal')), 'Focus cannot move to a background link');
-        await page.keyboard.press('Escape');
-        await page.waitForFunction(() => !document.querySelector('#wechat-modal').open &&
-            document.activeElement.id === 'wechat-link' && document.body.style.overflow === '');
-        assert.equal(await page.evaluate(() => document.body.style.overflow), '');
-
         await page.emulateMedia({ reducedMotion: 'reduce' });
         assert.ok(await page.locator('.skip-link').evaluate(e => e.getBoundingClientRect().bottom < 0), 'Reduced motion should not expose the unfocused skip link');
         assert.ok(await page.locator('.hero > *, .reveal').evaluateAll(es => es.every(e => getComputedStyle(e).animationName === 'none')), 'Reduced motion must disable hero and reveal animations');
@@ -139,7 +124,7 @@ const server = http.createServer((req, res) => {
             await page.goto(base + '/index.html', { waitUntil: 'networkidle' });
             await page.evaluate(t => { document.documentElement.dataset.theme = t; }, theme);
             await page.emulateMedia({ media: 'print' });
-            assert.equal(await page.locator('.news-item:visible').count(), 13);
+            assert.equal(await page.locator('.news-item:visible').count(), 15);
             assert.ok(await page.locator('.reveal').evaluateAll(es => es.every(e => getComputedStyle(e).opacity === '1')));
             assert.equal(await page.locator('.about-text p').first().evaluate(e => getComputedStyle(e).color), 'rgb(34, 34, 34)');
             await page.emulateMedia({ media: 'screen' });
@@ -148,10 +133,9 @@ const server = http.createServer((req, res) => {
         const nojs = await browser.newContext({ javaScriptEnabled: false });
         const plain = await nojs.newPage();
         await plain.goto(base + '/index.html');
-        assert.equal(await plain.locator('.news-item:visible').count(), 13);
+        assert.equal(await plain.locator('.news-item:visible').count(), 15);
         assert.equal(await plain.locator('.pagination:visible').count(), 0);
         assert.equal(await plain.locator('#theme-toggle:visible').count(), 0);
-        assert.equal(await plain.locator('#wechat-link').getAttribute('href'), 'img/wechat.png');
         await plain.goto(base + '/publications.html');
         assert.equal(await plain.locator('.publication-card:visible').count(), 11);
         assert.equal(await plain.locator('.filter-tags:visible').count(), 0);
@@ -162,7 +146,7 @@ const server = http.createServer((req, res) => {
         await failed.route('**/main.js*', route => route.abort());
         const offline = await failed.newPage();
         await offline.goto(base + '/index.html', { waitUntil: 'networkidle' });
-        assert.equal(await offline.locator('.news-item:visible').count(), 13);
+        assert.equal(await offline.locator('.news-item:visible').count(), 15);
         assert.ok(await offline.locator('.reveal').evaluateAll(es => es.every(e => getComputedStyle(e).opacity === '1')));
 
         const unavailable = await browser.newContext();
@@ -181,7 +165,7 @@ const server = http.createServer((req, res) => {
         assert.equal(await fallback.locator('#theme-toggle').getAttribute('aria-pressed'), 'true');
         assert.deepEqual(pageErrors, [], 'Uncaught browser errors');
         assert.deepEqual(localFailures, [], 'Missing local assets');
-        console.log('Passed: responsive layouts, WCAG scans, keyboard controls, pagination, dialog, reduced motion, print, no-JS, failed scripts, unavailable storage/API, and star caching.');
+        console.log('Passed: responsive layouts, WCAG scans, keyboard controls, pagination, reduced motion, print, no-JS, failed scripts, unavailable storage/API, and star caching.');
     } finally {
         await browser.close();
     }

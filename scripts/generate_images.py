@@ -31,5 +31,4 @@ if __name__ == '__main__':
     for name in PAPERS:
         generate(name, (480, 960))
     generate('pic_image.png', (132, 264))
-    generate('wechat.png', (560,), lossless=True)
     generate('cuhksz.png', (48,))
